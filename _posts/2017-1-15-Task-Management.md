@@ -77,3 +77,4 @@ Una vez tenemos configurado el IDE con el gestor de tareas integrado y el plugin
 - Realizamos el push de las diferentes ramas para acabar publicando los cambios en el repositorio.
 
 <center><img src="{{ site.baseurl }}/images/master.png" alt="Git" width="550"></center>
+
