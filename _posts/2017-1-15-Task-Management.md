@@ -3,13 +3,13 @@ layout: post
 title: IntelliJ IDEA + git-flow + Bitbucket issue tracker
 published: true
 ---
-##Task Management
+## Task Management
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea) o cualquiera de sus IDEs permiten gestionar las tareas gracias a la incorporación del plugin **Task Management**. Este plugin permite conectar diferentes _trackers_, sin embargo, no existe la conexión con el _issue tracker de [Bitbucket](https://bitbucket.org)_ (aunque sí lo hace con Jira y Trello, siendo también productos de Atlassian).
 
 Aquí explico cómo conectar este _tracker_ mediante la [API REST de Bitbucket](https://developer.atlassian.com/bitbucket/api/2/reference) y el plugin **Task Management** de IntelliJ IDEA.
 
-##Integración del _issue tracker de Bitbucket_ en IntelliJ IDEA
+## Integración del _issue tracker de Bitbucket_ en IntelliJ IDEA
 
 Abrimos la gestión de _trackers_ desde el menú **Tools > Tasks & Contexts > Configure Servers...** Desde este menú observamos los diferentes servidores configurados. Podemos añadir cualquiera de los _trackers_ predefinidos o también el de tipo genérico (llamado **Generic**). En este ejemplo, utilizaremos el genérico para poder configurarlo con las llamadas REST de la API 2.0 de Bitbucket.
 
@@ -45,7 +45,7 @@ Tras esto, accedemos a la pestaña de **Server Configuration** donde debemos esp
   
   **NOTA:** podemos insertar también la variable de plantilla **state** y pasarla en la **Tasks List URL** como parámetro [https://api.bitbucket.org/2.0/repositories/{username}/{repo_slug}/issues?q=state=%22{state}%22](https://api.bitbucket.org/2.0/repositories/{username}/{repo_slug}/issues?q=state=%22{state}%22) La definimos en la primera pestaña **General** con el valor de **new** lo que hará que se filtren las tareas mostrando únicamente las que tienen este estado.
 
-##Integración de _git-flow_ en IntelliJ IDEA
+## Integración de _git-flow_ en IntelliJ IDEA
 
 Para aquellos que usan la [filosofía _git-flow_](http://danielkummer.github.io/git-flow-cheatsheet) en el control de versiones, existe el plugin para IntelliJ IDEA que nos muestra y permite trabajar con _features_, _hotfix_ y _releases_ integrando todo esto con el plugin **Tasks Management**.
 
@@ -65,7 +65,7 @@ Por lo tanto, configuramos el **Commit Message** del plugin **Tasks Management**
 
 Al realizar el _commit_ del _changelist_, el mensaje por defecto será el de la plantilla anterior; tras este _commit_, podemos cerrar la _feature_ o _hotfix_, acabando con el comando `feature finish` o `hotfix finish` que de manera automática hará los merges entre las ramas de _master_ y _develop_.
 
-##Flujo de trabajo
+## Flujo de trabajo
 
 Una vez tenemos configurado el IDE con el gestor de tareas integrado y el plugin de _git-flow_ podemos seguir el flujo de trabajo siguiente:
 
