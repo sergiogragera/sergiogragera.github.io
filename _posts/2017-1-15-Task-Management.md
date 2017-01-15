@@ -33,15 +33,15 @@ Tras esto, accedemos a la pestaña de **Server Configuration** donde debemos esp
 
   - Marcaremos también la relación de cada campo esperado por el plugin **Tasks Management** con el campo que vendrá en la respuesta JSON. Las siguientes relaciones atañen a la respuesta de la llamada a **Tasks List URL** que contiene la lista de tareas; la primera es **tasks** e indicamos el nombre del elemento relacionado en la respuesta, que en en el caso del _tracker de Bitbucket_, viene en el elemento **values** (como se indica en el esquema especificado en la [API](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/issues)).
     
-  También podemos relacionar el **id** con el campo JSON **id** que marca el id de cada tarea en la respuesta; el campo **summary** lo relacionamos con **title** y el campo **description** con **description.raw**. Las siguientes relaciones con el prefijo singleTask indican lo mismo que las anteriores, pero atañen a la respuesta de la llamada a **Single Task URL**.
+  - También podemos relacionar el **id** con el campo JSON **id** que marca el id de cada tarea en la respuesta; el campo **summary** lo relacionamos con **title** y el campo **description** con **description.raw**. Las siguientes relaciones con el prefijo singleTask indican lo mismo que las anteriores, pero atañen a la respuesta de la llamada a **Single Task URL**.
     
   ![_config.yml]({{ site.baseurl }}/images/mapping.png)
 
   - Abrimos el gestor de variables de plantilla desde el botón **Manage Template Variables...** Aquí tenemos que indicar el valor de las variables usadas en las URLs anteriores y además indicaremos si aparece o no como campo editable para el usuario. Están definidas por defecto las dos básicas, como son **username** y **password**, pero además añadiremos **repo_slug** que indicará el nombre en código del repositorio y que lo utilizamos en las llamadas URL definidas anteriormente; y este campo lo haremos editable marcando la casilla de **Show on first tab** y le asignaremos como valor el nombre en código del repositorio.
     
-  ![_config.yml]({{ site.baseurl }}/images/template_variables.png)
+  ![Template Variables]({{ site.baseurl }}/images/template_variables.png =250x)
 
-  Ahora, en la primera pestaña llamada **General** se nos mostrarán, además de los campos **username**, **passwrod** ya comentados, el campo **repo_slug** que acabamos de insertar. 
+  Ahora, en la primera pestaña llamada **General** se nos mostrarán, además de los campos **username**, **password** ya comentados, el campo **repo_slug** que acabamos de insertar. 
   
   **NOTA:** podemos insertar también la variable de plantilla **state** y pasarla en la **Tasks List URL** como parámetro [https://api.bitbucket.org/2.0/repositories/{username}/{repo_slug}/issues?q=state=%22{state}%22](https://api.bitbucket.org/2.0/repositories/{username}/{repo_slug}/issues?q=state=%22{state}%22) La definimos en la primera pestaña **General** con el valor de **new** lo que hará que se filtren las tareas mostrando únicamente las que tienen este estado.
 
