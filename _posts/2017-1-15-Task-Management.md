@@ -29,7 +29,7 @@ Tras esto, accedemos a la pestaña de **Server Configuration** donde debemos esp
   - **Single Task URL**: aquí indicaremos la llamada que se hará para resolver los datos de una tarea específica, utilizando la llamada GET a la API mediante la URL [https://api.bitbucket.org/2.0/repositories/{username}/{repo_slug}/issues/{id}](https://api.bitbucket.org/2.0/repositories/{username}/{repo_slug}/issues/{id})
   - Marcaremos el tipo de respuesta como **JSON**, que es el formato de la respuesta a las llamadas de la API.
   
-  <img src="{{ site.baseurl }}/images/configuration.png" alt="Server Configuration" width="450">
+  <img src="{{ site.baseurl }}/images/config.png" alt="Server Configuration" width="450">
 
   - Marcaremos también la relación de cada campo esperado por el plugin **Tasks Management** con el campo que vendrá en la respuesta JSON. Las siguientes relaciones atañen a la respuesta de la llamada a **Tasks List URL** que contiene la lista de tareas; la primera es **tasks** e indicamos el nombre del elemento relacionado en la respuesta, que en en el caso del _tracker de Bitbucket_, viene en el elemento **values** (como se indica en el esquema especificado en la [API](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/issues)).
     
