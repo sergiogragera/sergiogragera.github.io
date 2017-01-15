@@ -20,7 +20,6 @@ Una vez añadido el servidor, debemos configurar la conexión al mismo con la au
   - **Password**: la contraseña de nuestro usuario en Bitbucket.
   - **Use HTTP authentication**: marcamos esta casilla para que realice la autenticación básica HTTP enviando usuario y contraseña a la URL especificada.
     
-  ![_config.yml]({{ site.baseurl }}/images/general.png)
   <img src="{{ site.baseurl }}/images/general.png" alt="General" width="450">
 
 Tras esto, accedemos a la pestaña de **Server Configuration** donde debemos especificar las diferentes llamas REST para poder consultar las tareas en nuestro _tracker_.
