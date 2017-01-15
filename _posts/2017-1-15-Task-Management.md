@@ -37,7 +37,7 @@ Tras esto, accedemos a la pestaña de **Server Configuration** donde debemos esp
     
   <center><img src="{{ site.baseurl }}/images/mapping.png" alt="Mapping" width="550"></center>
 
-  - Abrimos el gestor de variables de plantilla desde el botón **Manage Template Variables...** Aquí tenemos que indicar el valor de las variables usadas en las URLs anteriores y además indicaremos si aparece o no como campo editable para el usuario. Están definidas por defecto las dos básicas, como son **username** y **password**, pero además añadiremos **repo_slug** que indicará el nombre en código del repositorio y que lo utilizamos en las llamadas URL definidas anteriormente; y este campo lo haremos editable marcando la casilla de **Show on first tab** y le asignaremos como valor el nombre en código del repositorio.
+  - Abrimos el gestor de variables de plantilla desde el botón **Manage Template Variables...** Aquí tenemos que indicar el valor de las variables usadas en las URLs anteriores, y además, indicaremos si aparece o no como campo editable para el usuario. Por defecto, encontramos definidas las variables **username** y **password**, pero además añadiremos **repo_slug** que indicará el nombre en código del repositorio y que lo utilizamos en las llamadas URL definidas anteriormente; y este campo lo haremos editable marcando la casilla de **Show on first tab** y le asignaremos como valor el nombre en código del repositorio.
     
   <center><img src="{{ site.baseurl }}/images/template_variables.png" alt="Template Variables" width="450"></center>
 
@@ -51,15 +51,15 @@ Para aquellos que usan la [filosofía _git-flow_](http://danielkummer.github.io/
 
 <center><img src="{{ site.baseurl }}/images/git_flow.png" alt="Git Flow" width="550"></center>
 
-Como observamos en la siguiente imagen, al seleccionar un tarea pendiente (**Tools > Tasks & Contexts > + Open Task...**) se nos mostrará las opciones del control de versiones y también las opciones de _git-flow_. En este caso, deshabilitamos la opción de crear rama del VCS pero dejaremos habilitado la casilla de verificación que creará el _changelist de Git_ donde iran registrándose los cambios en el código. Además, activaremos ls opción Start feature o Start hotfix de _git-flow_ según sea nuestra necesidad en la tarea a realizar. Al aceptar, se creará la rama de _feature_ o _hotfix_ y la _chagelist de Git_.
+Como observaremos en la siguiente imagen, al seleccionar un tarea pendiente (**Tools > Tasks & Contexts > + Open Task...**) se nos mostrará las opciones del control de versiones y también las opciones de _git-flow_. En este caso, deshabilitamos la opción de crear rama del VCS pero dejaremos habilitado la casilla de verificación que creará el _changelist de Git_ donde iran registrándose los cambios realizados en el código. Además, activaremos ls opción `Start feature` o `Start hotfix` de la sección **Gitflow operations** según el tipo de tarea a implementar. Al aceptar, se creará la rama de _feature_ o _hotfix_ y la _changelist de Git_.
 
 <center><img src="{{ site.baseurl }}/images/open_task.png" alt="Open Task" width="550"></center>
 
-Una vez finalicemos los cambios haremos el _commit_ del _changelist_, que únicamente contendrá los cambios relaizados para esta feature o hotfix. El mensaje de _commit_ que aparecerá será el definido en el plugin **Tasks Management**, en la pestaña **Commit Message**, que por defecto viene definido con la plantilla {id} {summary}.
+Una vez finalicemos los cambios haremos el _commit_ del _changelist_, que únicamente contendrá los cambios relaizados para esta _feature_ o _hotfix_. El mensaje de _commit_ que aparecerá será el definido en el plugin **Tasks Management**, en la pestaña **Commit Message**, que por defecto viene definido con la plantilla:
 
-Es importante saber que con este mensaje de _commit_ podemos ejecutar cambios de estados de las tareas automáticamente en el _issue tracker de Bitbucket_. Podemos usar las palabras _fix_, _resolve_, etc. al inicio del mensaje seguidas del id de la tarea (con el prefijo #) para que cuando se suba este _commit_ se resuelva la tarea de manera automática.
+`{id} {summary}`
 
-Por lo tanto, configuramos el **Commit Message** del plugin **Tasks Management** como la plantilla siguiente:
+Es importante saber que con este mensaje de _commit_ podemos ejecutar cambios de estados de las tareas automáticamente en el _issue tracker de Bitbucket_ (más información [aquí](https://confluence.atlassian.com/bitbucket/resolve-issues-automatically-when-users-push-code-221451126.html)). Podemos usar las palabras _fix_, _resolve_, etc. al inicio del mensaje seguidas del id de la tarea (con el prefijo #) para que cuando se suba este _commit_ se resuelva la tarea de manera automática. Por lo tanto, configuramos el **Commit Message** del plugin **Tasks Management** como la plantilla siguiente:
 
 `fixed #{id} {summary}`
 
@@ -72,9 +72,9 @@ Una vez tenemos configurado el IDE con el gestor de tareas integrado y el plugin
 - Desde el menú **Tools > Tasks & Contexts > + Open Task...** buscamos y abrimos la tarea a realizar.
 - Seleccionamos crear la changelist y la opción feature o hotfix.
 - Realizamos los cambios de código.
-- Hacemos _commit_ (el mensaje está definido en la plantilla del Task Management y nos permite cambiar el estado de la tarea automáticamente cerrándola cuando sea publicada).
-- Finalizamos la feature o hotfix desde el menú del plugin de IntelliJ IDEA.
-- Realizamos el push de las diferentes ramas para acabar publicando los cambios en el repositorio.
+- Hacemos _commit_.
+- Finalizamos la _feature_ o _hotfix_ desde el menú del plugin de IntelliJ IDEA.
+- Realizamos el _push_ de las diferentes ramas para acabar publicando los cambios en el repositorio (el mensaje del _commit_ configurado hará que se cierre la tarea automáticamente).
 
 <center><img src="{{ site.baseurl }}/images/master.png" alt="Git" width="550"></center>
 
