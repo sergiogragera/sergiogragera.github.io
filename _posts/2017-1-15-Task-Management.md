@@ -55,7 +55,7 @@ Como observamos en la siguiente imagen, al seleccionar un tarea pendiente (**Too
 
 <center><img src="{{ site.baseurl }}/images/open_task.png" alt="Open Task" width="550"></center>
 
-Una vez finalicemos los cambios haremos el commit del _changelist_, que únicamente contendrá los cambios relaizados para esta feature o hotfix. El mensaje de commit que aparecerá será el definido en el plugin **Tasks Management**, en la pestaña **Commit Message**, que por defecto viene definido con la plantilla {id} {summary}.
+Una vez finalicemos los cambios haremos el _commit_ del _changelist_, que únicamente contendrá los cambios relaizados para esta feature o hotfix. El mensaje de _commit_ que aparecerá será el definido en el plugin **Tasks Management**, en la pestaña **Commit Message**, que por defecto viene definido con la plantilla {id} {summary}.
 
 Es importante saber que con este mensaje de _commit_ podemos ejecutar cambios de estados de las tareas automáticamente en el _issue tracker de Bitbucket_. Podemos usar las palabras _fix_, _resolve_, etc. al inicio del mensaje seguidas del id de la tarea (con el prefijo #) para que cuando se suba este _commit_ se resuelva la tarea de manera automática.
 
@@ -72,7 +72,7 @@ Una vez tenemos configurado el IDE con el gestor de tareas integrado y el plugin
 - Desde el menú **Tools > Tasks & Contexts > + Open Task...** buscamos y abrimos la tarea a realizar.
 - Seleccionamos crear la changelist y la opción feature o hotfix.
 - Realizamos los cambios de código.
-- Hacemos commit (el mensaje está definido en la plantilla del Task Management y nos permite cambiar el estado de la tarea automáticamente cerrándola cuando sea publicada).
+- Hacemos _commit_ (el mensaje está definido en la plantilla del Task Management y nos permite cambiar el estado de la tarea automáticamente cerrándola cuando sea publicada).
 - Finalizamos la feature o hotfix desde el menú del plugin de IntelliJ IDEA.
 - Realizamos el push de las diferentes ramas para acabar publicando los cambios en el repositorio.
 
