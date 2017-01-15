@@ -39,6 +39,7 @@ Tras esto, accedemos a la pestaña de **Server Configuration** donde debemos esp
 
   - Abrimos el gestor de variables de plantilla desde el botón **Manage Template Variables...** Aquí tenemos que indicar el valor de las variables usadas en las URLs anteriores y además indicaremos si aparece o no como campo editable para el usuario. Están definidas por defecto las dos básicas, como son **username** y **password**, pero además añadiremos **repo_slug** que indicará el nombre en código del repositorio y que lo utilizamos en las llamadas URL definidas anteriormente; y este campo lo haremos editable marcando la casilla de **Show on first tab** y le asignaremos como valor el nombre en código del repositorio.
     
+  <img src="{{ site.baseurl }}/images/template_variables.png" width="200">
   ![Template Variables]({{ site.baseurl }}/images/template_variables.png =250x)
 
   Ahora, en la primera pestaña llamada **General** se nos mostrarán, además de los campos **username**, **password** ya comentados, el campo **repo_slug** que acabamos de insertar. 
