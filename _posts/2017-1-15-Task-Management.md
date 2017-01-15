@@ -31,7 +31,7 @@ Tras esto, accedemos a la pestaña de **Server Configuration** donde debemos esp
   
   <center><img src="{{ site.baseurl }}/images/config.png" alt="Server Configuration" width="550"></center>
 
-  - Marcaremos también la relación de cada campo esperado por el plugin **Tasks Management** con el campo que vendrá en la respuesta JSON. Las siguientes relaciones atañen a la respuesta de la llamada a **Tasks List URL** que contiene la lista de tareas; la primera es **tasks** e indicamos el nombre del elemento relacionado en la respuesta, que en en el caso del _tracker de Bitbucket_, viene en el elemento **values** (como se indica en el esquema especificado en la [API](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/issues)).
+  - Marcaremos también la relación de cada campo esperado por el plugin **Tasks Management** con el campo que vendrá en la respuesta JSON. Las siguientes relaciones atañen a la respuesta de la llamada a **Tasks List URL** que contiene la lista de tareas; la primera es **tasks** e indicamos el nombre del elemento relacionado en la respuesta, que en en el caso del _tracker de Bitbucket_, viene en el elemento **values** (como se indica en el esquema especificado en la [aquí](https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Busername%7D/%7Brepo_slug%7D/issues)).
     
   - También podemos relacionar el **id** con el campo JSON **id** que marca el id de cada tarea en la respuesta; el campo **summary** lo relacionamos con **title** y el campo **description** con **description.raw**. Las siguientes relaciones con el prefijo singleTask indican lo mismo que las anteriores, pero atañen a la respuesta de la llamada a **Single Task URL**.
     
