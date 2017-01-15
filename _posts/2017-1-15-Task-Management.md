@@ -3,7 +3,7 @@ layout: post
 title: IntelliJ IDEA + git-flow + Bitbucket issue tracker
 published: true
 ---
-## Task Management
+## Sobre el plugin Task Management
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea) o cualquiera de sus IDEs permiten gestionar las tareas gracias a la incorporación del plugin **Task Management**. Este plugin permite conectar diferentes _trackers_, sin embargo, no existe la conexión con el _issue tracker de [Bitbucket](https://bitbucket.org)_ (aunque sí lo hace con Jira y Trello, siendo también productos de Atlassian).
 
