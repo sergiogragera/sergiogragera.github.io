@@ -11,7 +11,7 @@ Supongamos que tenemos acceso SSH a una máquina donde tenemos nuestro servidor;
 
 Sin embargo, en el flujo de trabajo del desarrollo de software parece interesante tener las conexiones a las bases de datos abiertas desde el propio IDE, como ya se integra desde IntelliJ IDEA. Por tanto, para poder conectar desde la máquina local (la máquina de desarrollo) necesitamos acceso a través de la máquina donde se aloja el servidor, creando un túnel hasta la máquina remota.
 
-`ssh user@maquina.servidor -L 2000:maquina.base.datos:1521`
+`ssh usuario@maquina.servidor -L 2000:maquina.base.datos:1521`
 
 ¿Qué significa este último argumento? Significa que todo lo que enviemos por nuestro puerto puerto de salida 2000 irá a la máquina servidor y saltará a la máquina con la base de datos entrando por está última por el puerto 1521. Con lo cual, si en la tercera máquina tenemos un Oracle escuchando en el puerto 1521, desde nuestra máquina local de desarrollo podemos crear una conexión a la base de datos remota conectando a localhost:2000 (cuyas peticiones, como acabamos de explicar, llegarán a la tercera máquina por el puerto 1521 donde está escuchando Oracle).
 
@@ -31,15 +31,19 @@ Por último, desde la pestaña **primera** introduciremos los datos de la conexi
 
 Explicar el caso de Single SigOn, donde no podemos definir la url de redirección como localhost:9000 pero podemos crear en una máquina accesible publicamente un túnel reverso SSH a un puerto local donde tenemos el servidor depurando la aplicación que desarrollamos.
 
-`ssh -R 8000:localhost:9000 user@maquina.accesible.publica`
+`ssh -R 8000:localhost:9000 usuario@maquina.accesible.publica`
 
 Ahora, todo lo que salga de la máquina remota por el puerto 8000, llegará a nuestro puerto local 9000 donde está nuestro servidor de desarrollo. Por tanto, podemos configurar la URL de redirección del servicio www.single.sign.on a la máquina accesible públicamente con el puerto 80, por ejemplo.
 
-Entonces, finalmente, cuando lleguen peticiones al puerto 80, esas llamadas tienen que ser redirigidas hacia el puerto 8000, haciendo así que salgan hacia nuestra máquina local, llegando por el puerto 9000 donde serán atendidas por nuestro servidor. Aquí debemos crear un túnel por el que todo lo que venga por el puerto 80 debe ser redirigido al puerto 8000 que conectará con el puerto 9000 de la máquina de depuración.
+Entonces, finalmente, cuando lleguen peticiones al puerto 80, esas llamadas tienen que ser redirigidas hacia el puerto 8000, haciendo así que salgan hacia nuestra máquina local, llegando por el puerto 9000 donde serán atendidas por nuestro servidor. Aquí debemos crear una redirección por la que todo lo que entre por el puerto 80 sea redirigido al puerto de salida 8000: 
 
-`ssh -L maquina.accesible.publica:7000:localhost:8000 user@maquina.accesible.publica`
+_VirtualHost de apache con redirección del puerto 80 a maquina.accesible.publica:8001_
 
-_Ver si hace falta hacer el VirtualHost, y en caso de ser necesario no se necesitará este nuevo túnel_
+Y ahora hacemos que lo que salga a maquina.accesible.publica:8001 sea redirigido a localhost:8000, el cual está conectado con nuestro puerto local 9000 donde se encuentra escuchando nuestro servidor de depuración.
+
+`ssh -L maquina.accesible.publica:8001:localhost:8000 usuario@maquina.accesible.publica`
+
+### Captura del kaos que supone hacer estos túnels y además la redirección Apache... sin tener en cuenta SSL.
 
 ## localtunnel
 
