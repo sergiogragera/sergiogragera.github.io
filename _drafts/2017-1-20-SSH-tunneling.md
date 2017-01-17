@@ -1,4 +1,7 @@
-## SSH Tunneling
+---
+published: false
+---
+## SSH _tunneling_
 
 Entre las opciones a la hora de conectar mediante SSH (Secure SHell) está la pposibilidad de crear un túnel desde la máquina local hasta una tercera máquina.
 
@@ -6,37 +9,37 @@ Supongamos que tenemos acceso SSH a una máquina donde tenemos nuestro servidor;
 
 ### Esquema explicando A -> B -> C pero no A -> C
 
-Sin embargo, en el flujo de trabajo del desarrollo de software parece interesante tener las conexiones a las bases de datos abiertas desde el propio IDE, como ya se integra desde IntelliJ IDEA. Por tanto, para poder conectar desde la máquina local (la máquina de desarrollo) necesitamos acceso a través de la máquina donde se aloja el servidor, creando un tunel hasta la máquina remota.
+Sin embargo, en el flujo de trabajo del desarrollo de software parece interesante tener las conexiones a las bases de datos abiertas desde el propio IDE, como ya se integra desde IntelliJ IDEA. Por tanto, para poder conectar desde la máquina local (la máquina de desarrollo) necesitamos acceso a través de la máquina donde se aloja el servidor, creando un túnel hasta la máquina remota.
 
 `ssh user@maquina.servidor -L 2000:maquina.base.datos:1521`
 
 ¿Qué significa este último argumento? Significa que todo lo que enviemos por nuestro puerto puerto de salida 2000 irá a la máquina servidor y saltará a la máquina con la base de datos entrando por está última por el puerto 1521. Con lo cual, si en la tercera máquina tenemos un Oracle escuchando en el puerto 1521, desde nuestra máquina local de desarrollo podemos crear una conexión a la base de datos remota conectando a localhost:2000 (cuyas peticiones, como acabamos de explicar, llegarán a la tercera máquina por el puerto 1521 donde está escuchando Oracle).
 
-### Usando el conector de base de datos de IntelliJ IDEA con un tunel SSH
+### Usando el conector de base de datos de IntelliJ IDEA con un túnel SSH
 
-Como hemos dicho, desde el IDE podemos crear una conexión a la base de datos creando la conexión a local por el puerto 2000 cuando tenemos el tunel SSH abierto. Pero también podemos configurar la conexión abriendo el tunel SSH desde la propia configuración de la conexión a BBDD.
+Como hemos dicho, desde el IDE podemos crear una conexión a la base de datos creando la conexión a local por el puerto 2000 cuando tenemos el túnel SSH abierto. Pero también podemos configurar la conexión abriendo el túnel SSH desde la propia configuración de la conexión a BBDD.
 
 ### Captura de conexión a BBDD mediante IntelliJ IDEA
 
-Abrimos **path -> a conectores** donde tenemos las conexiones a base de datos. Creamos entonces una nueva conexión seleccionando el driver según la necesidad; en este ejemplo usaremos el driver de Oracle. Accedemos ahora a la pestaña **config** y debemos introducir los datos del tunel SSH a crear cuando abramos esta conexión.
+Abrimos **path -> a conectores** donde tenemos las conexiones a base de datos. Creamos entonces una nueva conexión seleccionando el driver según la necesidad; en este ejemplo usaremos el driver de Oracle. Accedemos ahora a la pestaña **config** y debemos introducir los datos del túnel SSH a crear cuando abramos esta conexión.
 
-### Captura SSH tunel config
+### Captura SSH túnel config
 
-Por último, desde la pestaña **primera** introduciremos los datos de la conexión a la tercera máquina, la de la base de datos, ya que tendremos acceso puesto que el IDE abrirá un tunel mediante la conexión a la máquina del servidor que hará de _proxy_. No especificamos aquí el puerto local por donde salir en el tunel, pero IntelliJ IDEA está haciendo esto transparente para nosotros.
+Por último, desde la pestaña **primera** introduciremos los datos de la conexión a la tercera máquina, la de la base de datos, ya que tendremos acceso puesto que el IDE abrirá un túnel mediante la conexión a la máquina del servidor que hará de _proxy_. No especificamos aquí el puerto local por donde salir en el túnel, pero IntelliJ IDEA está haciendo esto transparente para nosotros.
 
-## SSH reverse tunneling
+## SSH _reverse tunneling_
 
-Explicar el caso de Single SigOn, donde no podemos definir la url de redirección como localhost:9000 pero podemos crear en una máquina accesible publicamente un tunel reverso SSH a un puerto local donde tenemos el servidor depurando la aplicación que desarrollamos.
+Explicar el caso de Single SigOn, donde no podemos definir la url de redirección como localhost:9000 pero podemos crear en una máquina accesible publicamente un túnel reverso SSH a un puerto local donde tenemos el servidor depurando la aplicación que desarrollamos.
 
 `ssh -R 8000:localhost:9000 user@maquina.accesible.publica`
 
 Ahora, todo lo que salga de la máquina remota por el puerto 8000, llegará a nuestro puerto local 9000 donde está nuestro servidor de desarrollo. Por tanto, podemos configurar la URL de redirección del servicio www.single.sign.on a la máquina accesible públicamente con el puerto 80, por ejemplo.
 
-Entonces, finalmente, cuando lleguen peticiones al puerto 80, esas llamadas tienen que ser redirigidas hacia el puerto 8000, haciendo así que salgan hacia nuestra máquina local, llegando por el puerto 9000 donde serán atendidas por nuestro servidor. Aquí debemos crear un tunel por el que todo lo que venga por el puerto 80 debe ser redirigido al puerto 8000 que conectará con el puerto 9000 de la máquina de depuración.
+Entonces, finalmente, cuando lleguen peticiones al puerto 80, esas llamadas tienen que ser redirigidas hacia el puerto 8000, haciendo así que salgan hacia nuestra máquina local, llegando por el puerto 9000 donde serán atendidas por nuestro servidor. Aquí debemos crear un túnel por el que todo lo que venga por el puerto 80 debe ser redirigido al puerto 8000 que conectará con el puerto 9000 de la máquina de depuración.
 
 `ssh -L aquina.accesible.publica:7000:localhost:8000 user@maquina.accesible.publica`
 
-_Ver si hace falta hacer el VirtualHost, y en caso de ser necesario no se necesitará este nuevo tunel_
+_Ver si hace falta hacer el VirtualHost, y en caso de ser necesario no se necesitará este nuevo túnel_
 
 ## localtunnel
 
