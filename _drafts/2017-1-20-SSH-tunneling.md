@@ -37,7 +37,7 @@ Ahora, todo lo que salga de la máquina remota por el puerto 8000, llegará a nu
 
 Entonces, finalmente, cuando lleguen peticiones al puerto 80, esas llamadas tienen que ser redirigidas hacia el puerto 8000, haciendo así que salgan hacia nuestra máquina local, llegando por el puerto 9000 donde serán atendidas por nuestro servidor. Aquí debemos crear un túnel por el que todo lo que venga por el puerto 80 debe ser redirigido al puerto 8000 que conectará con el puerto 9000 de la máquina de depuración.
 
-`ssh -L aquina.accesible.publica:7000:localhost:8000 user@maquina.accesible.publica`
+`ssh -L maquina.accesible.publica:7000:localhost:8000 user@maquina.accesible.publica`
 
 _Ver si hace falta hacer el VirtualHost, y en caso de ser necesario no se necesitará este nuevo túnel_
 
