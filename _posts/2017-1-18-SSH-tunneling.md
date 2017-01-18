@@ -53,8 +53,6 @@ Esas llamadas que llegan al puerto 80 tienen que ser redirigidas hacia el puerto
 </VirtualHost>
 ```
 
-<center><img src="{{ site.baseurl }}/images/ssh_4.jpg" alt="Caos SSH tunneling" width="450"></center>
-
 ## localtunnel
 
 Si en el caso anterior no disponemos de una máquina accesible publicamente, podemos instalar el comando [localtunnel](https://localtunnel.github.io/www/) y así efectuar las acciones explicadas en el apartado anterior pero conectando con una máquina ajena a nosotros cuyo subdominio será creado dinamicamente cada vez que levantemos el servicio.
