@@ -15,19 +15,17 @@ Por tanto, para poder conectar desde la máquina local necesitamos acceso a trav
 
 ¿Qué significa este último argumento? Significa que todo lo que enviemos por nuestro puerto puerto de salida 2000 irá a la máquina servidor y saltará a la máquina con la base de datos entrando en esta última por el puerto 1521. Con lo cual, si en la tercera máquina tenemos un Oracle escuchando en el puerto 1521, desde nuestra máquina local podemos crear una conexión a la base de datos remota conectando a localhost:2000 (cuyas peticiones, como acabamos de explicar, llegarán a la tercera máquina, a través del túnel SSH, por el puerto 1521 donde está escuchando Oracle).
 
-### Usando el conector de base de datos de IntelliJ IDEA con un túnel SSH
+<center><img src="{{ site.baseurl }}/images/ssh_1.png" alt="Template Variables" width="450"></center>
 
 Como se muestra en la imagen anterior, desde el IDE podemos crear una conexión a la base de datos creando la conexión a local por el puerto 2000 cuando tenemos el túnel SSH abierto. Pero también podemos configurar la conexión abriendo el túnel SSH desde la propia configuración de la conexión a BBDD en IntelliJ IDEA.
 
-### Captura de botón o menú a conexiones de BBDD en intellijidea
+Abrimos **View -> Tool Windows -> Database** que nos mostrará la ventana de administración de las conexiones a base de datos. Creamos entonces una nueva conexión seleccionando añadir un nuevo _data source_, en este ejemplo usaremos el de Oracle. Accedemos ahora a la pestaña **SSH/SSL** y debemos introducir los datos del túnel SSH a crear cuando abramos esta conexión.
 
-Abrimos **path -> a conectores** donde tenemos las conexiones a base de datos. Creamos entonces una nueva conexión seleccionando el driver según la necesidad; en este ejemplo usaremos el driver de Oracle. Accedemos ahora a la pestaña **config** y debemos introducir los datos del túnel SSH a crear cuando abramos esta conexión.
+<center><img src="{{ site.baseurl }}/images/ssh_2.png" alt="Template Variables" width="450"></center>
 
-### Captura SSH túnel config
+Por último, desde la pestaña **General** introduciremos los datos de la conexión a la tercera máquina, la de la base de datos, ya que tendremos acceso puesto que el IDE abrirá un túnel mediante la conexión a la máquina del servidor que hará de _proxy_. No especificamos aquí el puerto local por donde salir en el túnel, pero IntelliJ IDEA está haciendo esto transparente para nosotros.
 
-Por último, desde la pestaña **primera** introduciremos los datos de la conexión a la tercera máquina, la de la base de datos, ya que tendremos acceso puesto que el IDE abrirá un túnel mediante la conexión a la máquina del servidor que hará de _proxy_. No especificamos aquí el puerto local por donde salir en el túnel, pero IntelliJ IDEA está haciendo esto transparente para nosotros.
-
-### Captura de conexión a BBDD mediante IntelliJ IDEA
+<center><img src="{{ site.baseurl }}/images/ssh_3.png" alt="Template Variables" width="450"></center>
 
 ## SSH _reverse tunneling_
 
