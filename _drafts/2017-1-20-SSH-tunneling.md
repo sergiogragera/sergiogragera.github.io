@@ -31,11 +31,11 @@ Por último, desde la pestaña **General** introduciremos los datos de la conexi
 
 ## SSH _reverse tunneling_
 
-Explicar el caso de Single SigOn, donde no podemos definir la url de redirección como localhost:9000 pero podemos crear en una máquina accesible publicamente un túnel reverso SSH a un puerto local donde tenemos el servidor depurando la aplicación que desarrollamos.
+Por otra parte, tenemos un servicio de Single Sign-On ajeno a nosotros donde no podemos definir la url de redirección como localhost:9000, pero podemos crear en una máquina accesible publicamente un túnel reverso SSH a un puerto local (la máquina que estamos desarrollando, es decir, localhost:9000 por ejemplo) donde tenemos el servidor depurando la aplicación que desarrollamos.
 
 `ssh -R 8000:localhost:9000 usuario@maquina.accesible.publica`
 
-Ahora, todo lo que salga de la máquina remota por el puerto 8000, llegará a nuestro puerto local 9000 donde está nuestro servidor de desarrollo. Por tanto, podemos configurar la URL de redirección del servicio www.single.sign.on a la máquina accesible públicamente con el puerto 80, por ejemplo.
+Ahora, todo lo que salga de la máquina remota por el puerto 8000, llegará a nuestro puerto local 9000 donde está nuestro servidor de desarrollo. Por tanto, podemos configurar la URL de redirección del servicio www.single.sign-on a la máquina accesible públicamente por el puerto 80.
 
 Esas llamadas que llegan al puerto 80 tienen que ser redirigidas hacia el puerto 8000, haciendo así que salgan hacia nuestra máquina local, llegando por el puerto 9000 donde serán atendidas por nuestro servidor. 
 
