@@ -1,6 +1,11 @@
 ---
 published: false
 ---
+---
+layout: post
+title: SSH tunneling
+published: false
+---
 ## SSH _tunneling_
 
 Entre las opciones a la hora de conectar mediante SSH (Secure SHell) existe la pposibilidad de crear un túnel desde la máquina local hasta una tercera máquina.
