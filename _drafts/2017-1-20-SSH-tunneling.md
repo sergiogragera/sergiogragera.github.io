@@ -39,7 +39,23 @@ Ahora, todo lo que salga de la máquina remota por el puerto 8000, llegará a nu
 
 Esas llamadas que llegan al puerto 80 tienen que ser redirigidas hacia el puerto 8000, haciendo así que salgan hacia nuestra máquina local, llegando por el puerto 9000 donde serán atendidas por nuestro servidor. 
 
-_VirtualHost de apache con redirección del puerto 80 a maquina.accesible.publica:8001_
+```
+<VirtualHost *:80>
+    ServerName maquina.accesible.publica
+
+    ProxyPreserveHost On
+    ProxyRequests Off
+
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+
+    ProxyPass / ajp://maquina.accesible.publica:8001/
+    ProxyPassReverse / ajp://maquina.accesible.publica:8001/
+    ServerAlias maquina.accesible.publica
+</VirtualHost>
+```
 
 Y ahora hacemos que lo que salga a maquina.accesible.publica:8001 sea redirigido a localhost:8000 con un túnel SSH como el descrito en el primer apartado de este _post_:
 
