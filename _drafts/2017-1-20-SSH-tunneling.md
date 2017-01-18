@@ -3,21 +3,21 @@ published: false
 ---
 ## SSH _tunneling_
 
-Entre las opciones a la hora de conectar mediante SSH (Secure SHell) está la pposibilidad de crear un túnel desde la máquina local hasta una tercera máquina.
+Entre las opciones a la hora de conectar mediante SSH (Secure SHell) existe la pposibilidad de crear un túnel desde la máquina local hasta una tercera máquina.
 
-Supongamos que tenemos acceso SSH a una máquina donde tenemos nuestro servidor; sin embargo, no tenemos acceso directo a la máquina donde tenemos la base de datos. Esta máquina es solo accesible desde la máquina donde está nuestro servidor, pero no desde nuestra máquina local. Por tanto, podemos conectar a la máquina donde está el servidor y desde aquí crear una conexión a base de datos remota ya que sí que tenemos acceso a está tercera máquina.
+Supongamos que tenemos acceso SSH a una máquina donde tenemos nuestro servidor; sin embargo, no tenemos acceso directo a la máquina donde tenemos la base de datos. Esta máquina es solo accesible desde la máquina donde está nuestro servidor, pero no desde nuestra máquina local actual en la que estamos trabajando.
 
 ### Esquema explicando A -> B -> C pero no A -> C
 
-Sin embargo, en el flujo de trabajo del desarrollo de software parece interesante tener las conexiones a las bases de datos abiertas desde el propio IDE, como ya se integra desde IntelliJ IDEA. Por tanto, para poder conectar desde la máquina local (la máquina de desarrollo) necesitamos acceso a través de la máquina donde se aloja el servidor, creando un túnel hasta la máquina remota.
+Por tanto, para poder conectar desde la máquina local necesitamos acceso a través de la máquina donde se aloja el servidor, creando un túnel hasta la máquina remota.
 
 `ssh usuario@maquina.servidor -L 2000:maquina.base.datos:1521`
 
-¿Qué significa este último argumento? Significa que todo lo que enviemos por nuestro puerto puerto de salida 2000 irá a la máquina servidor y saltará a la máquina con la base de datos entrando por está última por el puerto 1521. Con lo cual, si en la tercera máquina tenemos un Oracle escuchando en el puerto 1521, desde nuestra máquina local de desarrollo podemos crear una conexión a la base de datos remota conectando a localhost:2000 (cuyas peticiones, como acabamos de explicar, llegarán a la tercera máquina por el puerto 1521 donde está escuchando Oracle).
+¿Qué significa este último argumento? Significa que todo lo que enviemos por nuestro puerto puerto de salida 2000 irá a la máquina servidor y saltará a la máquina con la base de datos entrando en esta última por el puerto 1521. Con lo cual, si en la tercera máquina tenemos un Oracle escuchando en el puerto 1521, desde nuestra máquina local podemos crear una conexión a la base de datos remota conectando a localhost:2000 (cuyas peticiones, como acabamos de explicar, llegarán a la tercera máquina, a través del túnel SSH, por el puerto 1521 donde está escuchando Oracle).
 
 ### Usando el conector de base de datos de IntelliJ IDEA con un túnel SSH
 
-Como hemos dicho, desde el IDE podemos crear una conexión a la base de datos creando la conexión a local por el puerto 2000 cuando tenemos el túnel SSH abierto. Pero también podemos configurar la conexión abriendo el túnel SSH desde la propia configuración de la conexión a BBDD.
+Como se muestra en la imagen anterior, desde el IDE podemos crear una conexión a la base de datos creando la conexión a local por el puerto 2000 cuando tenemos el túnel SSH abierto. Pero también podemos configurar la conexión abriendo el túnel SSH desde la propia configuración de la conexión a BBDD en IntelliJ IDEA.
 
 ### Captura de botón o menú a conexiones de BBDD en intellijidea
 
