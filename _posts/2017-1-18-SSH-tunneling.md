@@ -7,8 +7,6 @@ Entre las opciones a la hora de conectar mediante SSH (Secure SHell) existe la p
 
 Supongamos que tenemos acceso SSH a una máquina donde tenemos nuestro servidor; sin embargo, no tenemos acceso directo a la máquina donde tenemos la base de datos. Esta máquina es solo accesible desde la máquina donde está nuestro servidor, pero no desde nuestra máquina local actual en la que estamos trabajando.
 
-### Esquema explicando A -> B -> C pero no A -> C
-
 Por tanto, para poder conectar desde la máquina local necesitamos acceso a través de la máquina donde se aloja el servidor, creando un túnel hasta la máquina remota.
 
 `ssh usuario@maquina.servidor -L 2000:maquina.base.datos:1521`
