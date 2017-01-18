@@ -33,7 +33,7 @@ Por último, desde la pestaña **General** introduciremos los datos de la conexi
 
 Por otra parte, tenemos un servicio de Single Sign-On ajeno a nosotros donde no podemos definir la url de redirección como localhost:9000, pero podemos crear en una máquina accesible publicamente un túnel reverso SSH a un puerto local (la máquina que estamos desarrollando, es decir, localhost:9000 por ejemplo) donde tenemos el servidor depurando la aplicación que desarrollamos.
 
-`ssh -R 8000:localhost:9000 usuario@maquina.accesible.publica`
+`ssh -R maquina.accesible.publica:8000:localhost:9000 usuario@maquina.accesible.publica`
 
 Ahora, todo lo que salga de la máquina remota por el puerto 8000, llegará a nuestro puerto local 9000 donde está nuestro servidor de desarrollo. Por tanto, podemos configurar la URL de redirección del servicio www.single.sign-on a la máquina accesible públicamente por el puerto 80.
 
@@ -51,17 +51,13 @@ Esas llamadas que llegan al puerto 80 tienen que ser redirigidas hacia el puerto
         Allow from all
     </Proxy>
 
-    ProxyPass / ajp://maquina.accesible.publica:8001/
-    ProxyPassReverse / ajp://maquina.accesible.publica:8001/
+    ProxyPass / ajp://maquina.accesible.publica:8000/
+    ProxyPassReverse / ajp://maquina.accesible.publica:8000/
     ServerAlias maquina.accesible.publica
 </VirtualHost>
 ```
 
-Y ahora hacemos que lo que salga a maquina.accesible.publica:8001 sea redirigido a localhost:8000 con un túnel SSH como el descrito en el primer apartado de este _post_:
-
-`ssh -L maquina.accesible.publica:8001:localhost:8000 usuario@maquina.accesible.publica`
-
-<center><img src="{{ site.baseurl }}/images/ssh_4.jpg" alt="Caos SSH tunneling" width="650"></center>
+<center><img src="{{ site.baseurl }}/images/ssh_4.jpg" alt="Caos SSH tunneling" width="450"></center>
 
 ## localtunnel
 
