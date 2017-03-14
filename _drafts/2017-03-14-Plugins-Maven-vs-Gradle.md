@@ -28,6 +28,8 @@ En Gradle solo hay tres fases, de inicialización, de configuración y de ejecuc
 
 ###¿Cómo los ejecutamos?
 
+###java-exec
+
 ###jshint (validando código JS)
 
 ###yuicompressor (minificando código JS)
