@@ -19,6 +19,7 @@ En las herramientas de construcción de proyectos como son Maven o Gradle (adem�
 - install: instala el paquete en el repositorio local.
 - deploy: instala el paquete final en el repositorio remoto.
 
+
 - Initialization: se determina que proyectos van a formar parte de la construcción.
 - Configuration: se ejecutan los scripts de construcción (buildScripts) de todos los proyectos.
 - Execution: se determina el subconjunto de tareas creadas y configuradas y se ejecutan.
