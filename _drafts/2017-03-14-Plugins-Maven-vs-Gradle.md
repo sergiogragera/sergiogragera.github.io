@@ -9,16 +9,9 @@ Un plugin es aquella aplicación que, en un programa informático, añade una fu
 
 ###¿Cuál es su utilidad?
 
-En las herramientas de construcción de proyectos como son Maven o Gradle (además de ser gestores de dependencias) podemos extender o añadir funcionalidades en las diferentes fases de construcción que nos permiten desde ejecutar tests, validar código, minificar archivos, _deployar_ y arrancar la aplicación en un servidor...
+En las herramientas de construcción de proyectos como son Maven o Gradle (además de ser gestores de dependencias) podemos extender o añadir funcionalidades en las diferentes fases de construcción, lo que nos permite realizar acciones como ejecutar tests, validar código, minificar archivos, compilar, empaquetar y arrancar la aplicación en un servidor...
 
-- validate: valida que el proyecto es correcto.
-- compile: compila el código fuente del proyecto.
-- test: ejecuta los test sobre el código compilado con un framework de test unitarios.
-- package: empaqueta el código compilado en un formato válido como es JAR.
-- verify: comprueba cualquier resultado de los tests de integración.
-- install: instala el paquete en el repositorio local.
-- deploy: instala el paquete final en el repositorio remoto.
-
+En Maven, existen diferentes fases en el momento de construcción del proyecto divididas en tres ciclos de vida diferentes: clean, default y site.
 
 - Initialization: se determina que proyectos van a formar parte de la construcción.
 - Configuration: se ejecutan los scripts de construcción (buildScripts) de todos los proyectos.
