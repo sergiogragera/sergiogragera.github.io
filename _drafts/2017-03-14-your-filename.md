@@ -1,6 +1,12 @@
 ---
 published: false
 ---
+---
+layout: draft
+title: Plugins: Maven vs Gradle
+published: false
+---
+
 ##Plugins: Maven vs Gradle
 
 ###¿Qué es un plugin?
@@ -25,17 +31,3 @@ En las herramientas de construcción de proyectos como son Maven o Gradle (adem�
 - Execution: se determina el subconjunto de tareas creadas y configuradas y se ejecutan.
 
 ###jshint (validando código JS)
-
-
-
-## A New Post
-
-Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
-
-##Task Management
-
-[IntelliJ IDEA](https://www.jetbrains.com/idea) o cualquiera de sus IDEs permiten gestionar las tareas gracias a la incorporación del plugin **Task Management**. Este plugin permite conectar diferentes _trackers_, sin embargo, no existe la conexión con el _issue tracker de [Bitbucket](https://bitbucket.org)_ (aunque sí lo hace con Jira y Trello, siendo también productos de Atlassian).
-
-Aquí explico cómo conectar este _tracker_ mediante la [API REST de Bitbucket](https://developer.atlassian.com/bitbucket/api/2/reference) y el plugin **Task Management** de IntelliJ IDEA.
-
-##Integración del _issue tracker de Bitbucket_ en IntelliJ IDEA
