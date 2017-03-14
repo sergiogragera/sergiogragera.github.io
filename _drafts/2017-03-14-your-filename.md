@@ -1,12 +1,6 @@
 ---
 published: false
 ---
----
-layout: draft
-title: Plugins: Maven vs Gradle
-published: false
----
-
 ##Plugins: Maven vs Gradle
 
 ###¿Qué es un plugin?
