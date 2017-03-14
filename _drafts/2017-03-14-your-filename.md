@@ -24,6 +24,10 @@ En las herramientas de construcción de proyectos como son Maven o Gradle (adem�
 - Configuration: se ejecutan los scripts de construcción (buildScripts) de todos los proyectos.
 - Execution: se determina el subconjunto de tareas creadas y configuradas y se ejecutan.
 
+###jshint (validando código JS)
+
+
+
 ## A New Post
 
 Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
