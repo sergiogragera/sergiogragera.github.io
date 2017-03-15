@@ -86,7 +86,7 @@ Al ser un plugin propio de Maven (sigue la convención de nomenclatura oficial *
 				mvn clean:clean
 ```
 
-En Gradle ocurre algo similar. Tenemos por una parte la declaración del _plugin_ y la declaración de la aplicación o ejecución del mismo.
+En Gradle ocurre algo similar. Tenemos por una parte la declaración del _plugin_ y la declaración de la aplicación o ejecución del mismo. En el caso siguiente tenemos la declaración de un plugin que no incluye Gradle por defecto como es el desarrollado por [SourceClear](https://app.sourceclear.com)
 
 ```groovy
                 plugins {
@@ -94,15 +94,24 @@ En Gradle ocurre algo similar. Tenemos por una parte la declaración del _plugin
                 }
                 
                 apply plugin: 'com.srcclr.gradle'
+                apply plugin: 'idea'
 ```
 
 Cada _plugin_ define una tareas (lo que homologamente en Maven son los _goals_) y por tanto, la aplicación de un plugin implica la disposición de ejecutar estas tareas. Si queremos ejecutarlas en una fase concreta, o hacerla dependiente de la ejecución de otra tarea la podremos definir en el archivo _build.gradle_ como sigue:
 
 ```groovy
-				build.dependsOn(srcclr)
+				clean.dependsOn(cleanIdea)
                 
-				build.finalizedBy(srcclr)
+				clean.finalizedBy(cleanIdea)
 ```
+
+Y podemos ejecutar cualquier tarea ejecutando el comando _gradle_ seguido del nombre de la tarea:
+
+```groovy
+				gradle idea
+```
+
+
 
 
 
