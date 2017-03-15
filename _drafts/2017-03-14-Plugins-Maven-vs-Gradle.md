@@ -31,8 +31,6 @@ En Maven, los _plugins_ se ejecutan en las diferentes fases de construcción del
 
 En Gradle solo hay tres fases, de inicialización, de configuración y de ejecución. Sin embargo aquí se introducen las tareas o _Tasks_ las cuales ejecutan acciones. Estas tareas pueden ser ejecutadas según el orden deseado e introduciendo dependencias de orden entre ellas. Los plugins introducen nuevas tareas que son ejecutadas en el momento de ejecución y nuestras acciones pueden asociarse a la ejecución posterior o anterior a estas tareas.
 
-//Mostramos la configuración dependiente de una tarea
-
 ```groovy
                 compileJava.finalizedBy(combineJs, minifyJs)
 ```
