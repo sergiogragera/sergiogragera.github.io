@@ -16,7 +16,7 @@ En las herramientas de construcción de proyectos como son Maven o Gradle (adem�
 
 ###¿Cuándo se ejecutan?
 
-En Maven, los _plugins_ se ejecutan en las diferentes fases de construcción del proyecto agrupadas en tres ciclos de vida diferentes: _clean_, _default_ y _site_. Sin entrar en más detalle (véase [Maven Lifecycle Reference](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference)) tenemos fases dentro del ciclo de vida _default_ como son _process-resources_ (momento en el cual se copian los recursos en el directorio _target_), _compile_, _test_, _package_ (empaquetado del código compilado en formato JAR, por ejemplo) o _verify_ (comprobación de que los distintos controles como test unitarios, de integración o cuaquier otra comprobación se completa correctamente cuando se procesa el empaquetado cumpliendo así los criterios de calidad).
+En Maven, los _plugins_ se ejecutan en las diferentes fases de construcción del proyecto agrupadas en tres ciclos de vida diferentes: _clean_, _default_ y _site_. Sin entrar en más detalle (véase [Maven Lifecycle Reference](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference)) tenemos fases dentro del ciclo de vida _default_ como son _process-resources_ (momento en el cual se copian los recursos en el directorio _target_), _compile_, _test_, _package_ (empaquetado del código compilado en formato JAR, por ejemplo) o _verify_ (comprobación de que los distintos controles como test unitarios, de integración o cuaquier otra comprobación se completa correctamente cuando se procesa el empaquetado cumpliendo así los criterios de calidad). La etiqueta que nos permite definir la fase de ejcución es _phase_ y estará definida dentro de la etiqueta de ejecución, en las múltiples ejecuciones posibles a definir.
 
 ```xml
                 <executions>
@@ -37,7 +37,26 @@ En Gradle solo hay tres fases, de inicialización, de configuración y de ejecuc
 
 ###¿Cómo los configuramos?
 
+Los plugins aceptan parámetros y por tanto estos deben ser definidos, configurando así la ejecución del _plugin_. En el caso de Maven, tenemos la etiqueta _configuration_ que nos permite declarar los valores con los que queremos inicializar los parámetros que expone el _plugin_. Si lo hacemos a nivel de la etiqueta _execution_ estos valores solo se inicializarán cuando se ejecute esta ejecución, sin embargo también se nos permite declarar esta configuración en el nivel anterior, lo que hará que se utilicen por defecto estos valores aquí definidos.
+
+```xml
+                <configuration>
+                	<inputDir>${basedir}/src/main/webapp/</inputDir>
+                	<output>${build.outputDirectory}</output>
+                </configuration>
+```
+
+En Gradle tenemos también una manera de configurar el _plugin_ y por tanto definir los valores de los parámetros que expone dicho _plugin_.
+
+```groovy
+	            srcclr {
+                	directory = "${projectDir}/src/main/java"
+                }
+```
+
 ###¿Cómo los ejecutamos?
+
+Cuando en Maven ejecutamos `mvn clean` efssa cds dsc 
 
 ###java-exec
 
