@@ -122,6 +122,7 @@ Y podemos ejecutar cualquier tarea ejecutando el comando _gradle_ seguido del no
 Lo primero que tenemos que definir en el _pom.xml_ de nuestro proyecto _plugin_ (el cual deberá llamarse _name_-mave-plugin para cumplir con la nomenclatura propuesta por Maven y diferenciar de los _plugins_ oficiales de Maven que serán maven-_name_-plugin) es el tipo de empaquetado que hará Maven que será de tipo **maven-plugin**:
 
 ```xml
+			    <groupId>groupId</groupId>
                 <artifactId>myname-maven-plugin</artifactId>
                 <version>1.0.0</version>
 				<packaging>maven-plugin</packaging>
@@ -161,6 +162,12 @@ Finalmente cumpliremos con la API de los plugins de Maven implementando una clas
                         //que puede venir con un valor o por defecto ser src/main/webapp
                     }
                 }
+```
+
+Una vez ejecutemos `mvn install` ya tendremos disponible el _plugin_ en el repositorio local de Maven. Por lo que podremos ejecutar el siguiente comando (podemos obviar la versión ya que Maven utilizará la última existente):
+
+```
+				mvn groupId:myname-maven-plugin:1.0.0:goalName
 ```
 
 
