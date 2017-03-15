@@ -122,26 +122,28 @@ Y podemos ejecutar cualquier tarea ejecutando el comando _gradle_ seguido del no
 Lo primero que tenemos que definir en el _pom.xml_ de nuestro proyecto _plugin_ (el cual deberá llamarse _name_-mave-plugin para cumplir con la nomenclatura propuesta por Maven y diferenciar de los _plugins_ oficiales de Maven que serán maven-_name_-plugin) es el tipo de empaquetado que hará Maven que será de tipo **maven-plugin**:
 
 ```xml
+                <artifactId>myname-maven-plugin</artifactId>
+                <version>1.0.0</version>
 				<packaging>maven-plugin</packaging>
 ```
 
 Por otra parte es necesario importar las siguientes librerías de Maven:
 
 ```xml
-				    <dependencies>
-                        <dependency>
-                            <groupId>org.apache.maven</groupId>
-                            <artifactId>maven-plugin-api</artifactId>
-                            <version>3.0</version>
-                        </dependency>
+				<dependencies>
+                	<dependency>
+                        <groupId>org.apache.maven</groupId>
+                        <artifactId>maven-plugin-api</artifactId>
+                        <version>3.0</version>
+                    </dependency>
 
-                        <dependency>
-                            <groupId>org.apache.maven.plugin-tools</groupId>
-                            <artifactId>maven-plugin-annotations</artifactId>
-                            <version>3.4</version>
-                            <scope>provided</scope>
-                        </dependency>
-                    </dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.plugin-tools</groupId>
+                        <artifactId>maven-plugin-annotations</artifactId>
+                        <version>3.4</version>
+                        <scope>provided</scope>
+                    </dependency>
+                </dependencies>
 ```
 
 
