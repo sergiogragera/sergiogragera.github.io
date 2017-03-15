@@ -49,8 +49,12 @@ Los plugins aceptan parámetros y por tanto estos deben ser definidos, configura
 En Gradle tenemos también una manera de configurar el _plugin_ y por tanto definir los valores de los parámetros que expone dicho _plugin_.
 
 ```groovy
-	            srcclr {
-                	directory = "${projectDir}/src/main/java"
+				idea {
+                    module {
+                        iml {
+      						generateTo = file('secret-modules-folder')
+      					}
+                    }
                 }
 ```
 
@@ -86,7 +90,7 @@ Al ser un plugin propio de Maven (sigue la convención de nomenclatura oficial *
 				mvn clean:clean
 ```
 
-En Gradle ocurre algo similar. Tenemos por una parte la declaración del _plugin_ y la declaración de la aplicación o ejecución del mismo. En el caso siguiente tenemos la declaración de un plugin que no incluye Gradle por defecto como es el desarrollado por [SourceClear](https://app.sourceclear.com)
+En Gradle ocurre algo similar. Tenemos por una parte la declaración del _plugin_ y la declaración de la aplicación o ejecución del mismo. En el caso siguiente tenemos la declaración de un plugin que no incluye Gradle por defecto como es el desarrollado por [SourceClear](https://app.sourceclear.com) y por tanto primero se define como dependencia y luego se aplica; por otro lado está la aplicación del _plugin_ **idea** que incluye la herramienta.
 
 ```groovy
                 plugins {
@@ -110,6 +114,7 @@ Y podemos ejecutar cualquier tarea ejecutando el comando _gradle_ seguido del no
 ```groovy
 				gradle idea
 ```
+
 
 
 
