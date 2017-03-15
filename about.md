@@ -4,7 +4,7 @@ title: Sobre mí
 permalink: /about/
 ---
 
-Desarrollador @ [4TIC](http://4tic.com/)
+Full Stack Developer @ [4TIC](http://4tic.com/)
 
 ### Contacto
 
