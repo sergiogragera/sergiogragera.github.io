@@ -115,5 +115,10 @@ Y podemos ejecutar cualquier tarea ejecutando el comando _gradle_ seguido del no
 				gradle idea
 ```
 
-###¿Cómo los desarrollamos?
+##Desarrollando _plugins_ con Java
 
+###Maven
+
+
+
+###Gradle
