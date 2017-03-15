@@ -115,17 +115,5 @@ Y podemos ejecutar cualquier tarea ejecutando el comando _gradle_ seguido del no
 				gradle idea
 ```
 
-
-
-
-
-
-###java-exec
-
-###jshint (validando código JS)
-
-###yuicompressor (minificando código JS)
-
-###jetty (servidor web) 
-
 ###¿Cómo los desarrollamos?
+
