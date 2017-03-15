@@ -56,7 +56,7 @@ En Gradle tenemos también una manera de configurar el _plugin_ y por tanto defi
 
 ###¿Cómo los ejecutamos?
 
-Cuando en Maven ejecutamos `mvn clean` estamos ejecutando el plugin _maven-clean-plugin_ que incorpora nativamente la herramienta. Este plugin tiene un único _goal_ que son las acciones posibles a ejecutar, y en este caso ese _goal_ es 'clean' que tiene por objetivo eliminar el directorio _target_ de nuestros módulos. Además del _goal_ los _plugins_ tienen una eqtiqueta _executions_ que permite definir las diferentes ejecuciones del _plugin_, por ejemplo indicando diferentes fases donde ejecutarlo. Por otra parte, el _plugin_ puede configurarse con variables parametrizadas asignandose los valores en cada ejecución o de manera global.
+Cuando en Maven ejecutamos `mvn clean` estamos ejecutando el plugin _maven-clean-plugin_ que incorpora nativamente la herramienta. Este plugin tiene un único _goal_ que son las acciones posibles a ejecutar, y en este caso ese _goal_ es 'clean' que tiene por objetivo eliminar el directorio _target_ de nuestros módulos. Además del _goal_ los _plugins_ tienen una eqtiqueta _executions_ que permite definir las diferentes ejecuciones del _plugin_, por ejemplo indicando diferentes fases donde ejecutarlo. Por otra parte, el _plugin_ puede configurarse con variables parametrizadas asignándose los valores en cada ejecución o de manera global.
 
 ```xml
                 <plugin>
@@ -73,6 +73,17 @@ Cuando en Maven ejecutamos `mvn clean` estamos ejecutando el plugin _maven-clean
                     </executions>
                 </plugin>
 ```
+
+Para ejecutar un plugin solo tenemos que invocarlo desde el comando `mvn` indicando el _plugin_ y _goal_ a ejecutar. Siguiendo con el ejemplo anterior podemos ejecutar el siguiente comando:
+
+```bash
+				mvn org.apache.maven.plugins:maven-clean-plugin:clean
+```
+
+
+
+
+
 
 ###java-exec
 
