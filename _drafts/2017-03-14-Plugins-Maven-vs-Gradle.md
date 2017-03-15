@@ -77,11 +77,32 @@ Cuando en Maven ejecutamos `mvn clean` estamos ejecutando el plugin _maven-clean
 Para ejecutar un plugin solo tenemos que invocarlo desde el comando `mvn` indicando el _plugin_ y _goal_ a ejecutar. Siguiendo con el ejemplo anterior podemos ejecutar el siguiente comando:
 
 ```bash
-				mvn org.apache.maven.plugins:maven-clean-plugin:clean
+				mvn org.apache.maven.plugins:maven-clean-plugin:2.5:clean
 ```
 
+Al ser un plugin propio de Maven (sigue la convención de nomenclatura oficial **maven-_name_-plugin** y pertenece al paquete _org.apache.maven.plugins_) podemos invocarlo solo indicando el nombre (_name_ indicado entre las palabras maven y plugin), quedando la ejecución anterior como:
 
+```bash
+				mvn clean:clean
+```
 
+En Gradle ocurre algo similar. Tenemos por una parte la declaración del _plugin_ y la declaración de la aplicación o ejecución del mismo.
+
+```groovy
+                plugins {
+                    id 'com.srcclr.gradle' version '2.0.1'
+                }
+                
+                apply plugin: 'com.srcclr.gradle'
+```
+
+Cada _plugin_ define una tareas (lo que homologamente en Maven son los _goals_) y por tanto, la aplicación de un plugin implica la disposición de ejecutar estas tareas. Si queremos ejecutarlas en una fase concreta, o hacerla dependiente de la ejecución de otra tarea la podremos definir en el archivo _build.gradle_ como sigue:
+
+```groovy
+				build.dependsOn(srcclr)
+                
+				build.finalizedBy(srcclr)
+```
 
 
 
