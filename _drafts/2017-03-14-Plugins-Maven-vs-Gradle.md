@@ -146,5 +146,22 @@ Por otra parte es necesario importar las siguientes librerías de Maven:
                 </dependencies>
 ```
 
+Finalmente cumpliremos con la API de los plugins de Maven implementando una clase Mojo (Maven plain Old Java Object) la cual extenderá de _AbstractMojo_ e implementará el método _execute_. Para definir la clase como Mojo deberemos indicar la anotación sobre el nombre de la clase, indicando el nombre del Mojo (esto será el nombre del _goal_) y la fase por defecto en la que se ejecutará (si no indicamos ninguna fase el plugin no se ejecutará cuando por ejemplo se ejecute un _build_ y solo se ejecutará si lo lanzamos manualmente).
+
+```java
+                @Mojo(name = "goalName", defaultPhase = LifecyclePhase.COMPILE)
+                public class JugCsMojo extends AbstractMojo {
+                    @Parameter(property = "directory", defaultValue = "src/main/webapp")
+                    private String directory;
+
+                    @Override
+                    public void execute() throws MojoExecutionException, MojoFailureException {
+                        //Llamada a la clase que ejecuta las acciones de nuestro plugin, 
+                        //donde podemos pasarle el parámetro de configuración directory
+                        //que puede venir con un valor o por defecto ser src/main/webapp
+                    }
+                }
+```
+
 
 ###Gradle
