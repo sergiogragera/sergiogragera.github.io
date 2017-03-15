@@ -56,7 +56,7 @@ En Gradle tenemos también una manera de configurar el _plugin_ y por tanto defi
 
 ###¿Cómo los ejecutamos?
 
-Cuando en Maven ejecutamos `mvn clean` efssa cds dsc 
+Cuando en Maven ejecutamos `mvn clean` estamos ejecutando el plugin _maven-clean-plugin_ que incorpora nativamente la herramienta. Este plugin tiene un único _goal_ que son las acciones posibles a ejecutar, y en este caso ese _goal_ es 'clean' que tiene por objetivo eliminar el directorio _target_ de nuestros módulos.
 
 ###java-exec
 
