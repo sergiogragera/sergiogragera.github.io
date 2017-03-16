@@ -1,10 +1,8 @@
 ---
 layout: post
-title: Plugins Maven vs Gradle
+title: Plugins\: Maven vs Gradle
 published: true
 ---
-## Plugins: Maven vs Gradle
-
 ### ¿Qué es un plugin?
 
 Maven: build plugins (dejamos de lado los report plugins)
