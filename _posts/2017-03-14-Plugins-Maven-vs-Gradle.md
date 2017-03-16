@@ -1,4 +1,6 @@
 ---
+layout: post
+title: Plugins: Maven Vs Gradle
 published: true
 ---
 ##Plugins: Maven vs Gradle
