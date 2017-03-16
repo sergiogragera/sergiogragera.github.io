@@ -35,29 +35,6 @@ En Gradle solo hay tres fases, de inicialización, de configuración y de ejecuc
                 compileJava.finalizedBy(combineJs, minifyJs)
 ```
 
-###¿Cómo los configuramos?
-
-Los plugins aceptan parámetros y por tanto estos deben ser definidos, configurando así la ejecución del _plugin_. En el caso de Maven, tenemos la etiqueta _configuration_ que nos permite declarar los valores con los que queremos inicializar los parámetros que expone el _plugin_. Si lo hacemos a nivel de la etiqueta _execution_ estos valores solo se inicializarán cuando se ejecute esta ejecución, sin embargo también se nos permite declarar esta configuración en el nivel anterior, lo que hará que se utilicen por defecto estos valores aquí definidos.
-
-```xml
-                <configuration>
-                	<inputDir>${basedir}/src/main/webapp/</inputDir>
-                	<output>${build.outputDirectory}</output>
-                </configuration>
-```
-
-En Gradle tenemos también una manera de configurar el _plugin_ y por tanto definir los valores de los parámetros que expone dicho _plugin_.
-
-```groovy
-				idea {
-                    module {
-                        iml {
-      						generateTo = file('secret-modules-folder')
-      					}
-                    }
-                }
-```
-
 ###¿Cómo los ejecutamos?
 
 Cuando en Maven ejecutamos `mvn clean` estamos ejecutando el plugin _maven-clean-plugin_ que incorpora nativamente la herramienta. Este plugin tiene un único _goal_ que son las acciones posibles a ejecutar, y en este caso ese _goal_ es 'clean' que tiene por objetivo eliminar el directorio _target_ de nuestros módulos. Además del _goal_ los _plugins_ tienen una eqtiqueta _executions_ que permite definir las diferentes ejecuciones del _plugin_, por ejemplo indicando diferentes fases donde ejecutarlo. Por otra parte, el _plugin_ puede configurarse con variables parametrizadas asignándose los valores en cada ejecución o de manera global.
@@ -115,6 +92,29 @@ Y podemos ejecutar cualquier tarea ejecutando el comando _gradle_ seguido del no
 				gradle idea
 ```
 
+###¿Cómo los configuramos?
+
+Los plugins aceptan parámetros y por tanto estos deben ser definidos, configurando así la ejecución del _plugin_. En el caso de Maven, tenemos la etiqueta _configuration_ que nos permite declarar los valores con los que queremos inicializar los parámetros que expone el _plugin_. Si lo hacemos a nivel de la etiqueta _execution_ estos valores solo se inicializarán cuando se ejecute esta ejecución, sin embargo también se nos permite declarar esta configuración en el nivel anterior, lo que hará que se utilicen por defecto estos valores aquí definidos.
+
+```xml
+                <configuration>
+                	<inputDir>${basedir}/src/main/webapp/</inputDir>
+                	<output>${build.outputDirectory}</output>
+                </configuration>
+```
+
+En Gradle tenemos también una manera de configurar el _plugin_ y por tanto definir los valores de los parámetros que expone dicho _plugin_.
+
+```groovy
+				idea {
+                    module {
+                        iml {
+      						generateTo = file('secret-modules-folder')
+      					}
+                    }
+                }
+```
+
 ##Desarrollando _plugins_ con Java
 
 ###Maven
@@ -151,7 +151,7 @@ Finalmente cumpliremos con la API de los plugins de Maven implementando una clas
 
 ```java
                 @Mojo(name = "goalName", defaultPhase = LifecyclePhase.COMPILE)
-                public class JugCsMojo extends AbstractMojo {
+                public class MyMojo extends AbstractMojo {
                     @Parameter(property = "directory", defaultValue = "src/main/webapp")
                     private String directory;
 
@@ -172,3 +172,121 @@ Una vez ejecutemos `mvn install` ya tendremos disponible el _plugin_ en el repos
 
 
 ###Gradle
+
+Para crear un _plugin_ de Gradle debemos definir en el archivo de configuración _build.gradle_ la dependencia a la api de Gradle:
+
+```groovy
+				dependencies {
+                    compile gradleApi()
+                }
+```
+
+Una vez definida la dependencia ya podremos crear la clase _plugin_ que será la que defina las diferentes tareas que expone nuestro _plugin_:
+
+```java
+				import org.gradle.api.Plugin;
+				import org.gradle.api.Project;
+                
+				public class MyPlugin implements Plugin<Project> {
+                    public void apply(Project project) {
+                        project.getExtensions().create("myplugin", MyExtension.class);
+                        project.getTasks().create("myplugin", MyTask.class);
+                    }
+                }
+```
+
+En la clase anterior estamos diciendo que nuestro plugin tendrá una tarea llamada 'myplugin' y una extensión (no es más que una configuración) que se definirá bajo la etiqueta 'myplugin' (por convencionalismos llamaremos a la configuración de la tarea con el mismo nombre que la tarea).
+
+Necesitamos entonces definir la clase extensión que recibirá los valores iniciales de los parámetros configurables:
+
+```java
+				public class MyExtension {
+                  private String directory = "src/main/webapp";
+
+                  public String getDirectory() {
+                      return directory;
+                  }
+
+                  public void setDirectory(String directory) {
+                      this.directory = directory;
+                  }
+              }
+```
+
+Finalmente debemos definir nuestra tarea en la clase MyTask que hará uso de la configuración leída por la extensión anterior.
+
+```java
+				import org.gradle.api.DefaultTask;
+                import org.gradle.api.tasks.TaskAction;
+
+                /**
+                 * Created by sergio on 15/03/17.
+                 */
+                public class JugCsTask extends DefaultTask {
+                    @TaskAction
+                    public void myTaskAction() {
+                        MyExtension extension = getProject().getExtensions().findByType/MyExtension.class);
+                        if (extension == null) {
+                            extension = new MyExtension();
+                        }
+
+                        String directory = extension.getDirectory();
+
+                        //Llamada a la clase que ejecuta las acciones de nuestro plugin, 
+                        //donde podemos pasarle el parámetro de configuración directory
+                        //que puede venir con un valor o por defecto ser src/main/webapp
+                    }
+                }
+```
+
+Una vez tenemos todas las clases anteriores definidas solo nos queda indicar a gradle que esto es un _plugin_ y la clase que define al _plugin_; concretamente la clase que define las tareas y extensiones de nuestro _plugin_, que en este caso es MyPlugin.java. Esto lo haremos creando un directorio **gradle-plugins** bajo el directorio src/main/resources/META-INF donde deberemos especificar en el archivo de _properties_ (el nombre de este archivo debe ser el nombre completo con el que se llamará al _plugin_) la clase inicial donde se definen las tareas:
+
+```
+                  src/
+                    main/
+                      resoruces/
+                        META-INF/
+                          gradle.plugins/
+                            groupId.myplugin.properties
+```
+
+Este archivo contendrá la siguiente línea:
+
+```
+				   implementation-class=MyPlugin
+```
+
+Realizando la instalación en el repositorio local de MAven ejecutando el comando _install_ del _plugin_ de _maven_ tendremos la posibilidad de importarlo, aplicarlo y usarlo desde otros proyectos. Para esto, en el _build.gradle_ debemos tener el _plugin_ de Maven y Java:
+
+```
+                    group 'groupId'
+                    version '1.0.0'
+
+                    apply plugin: 'java'
+                    apply plugin: 'maven'
+
+                    sourceCompatibility = 1.8
+
+                    repositories {
+                        mavenCentral()
+                    }
+
+                    dependencies {
+                        compile gradleApi()
+                    }
+```
+
+Y desde cualquier proyecto podremos importar este _plugin_ de la siguiente manera:
+
+```
+					buildscript {
+                        repositories {
+                            mavenLocal()
+                        }
+                        dependencies {
+                            classpath("groupId:myplugin:1.0.0")
+                        }
+                    }
+                    
+                    apply plugin: 'groupId.myplugin' //Nombre del archivo bajo el directorio META-INF/gradle-plugins
+```
