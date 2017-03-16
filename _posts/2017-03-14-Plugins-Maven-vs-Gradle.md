@@ -5,9 +5,6 @@ published: true
 ---
 ### ¿Qué es un plugin?
 
-Maven: build plugins (dejamos de lado los report plugins)
-Gradle: binary plugins (script plugins no los tocamos)
-
 Un plugin es aquella aplicación que, en un programa informático, añade una funcionalidad adicional o una nueva característica al software. En este caso puede nombrarse al plugin como un complemento o extensión de la herramienta [Maven](https://maven.apache.org/) o [Gradle](https://gradle.org/).
 
 ### ¿Cuál es su utilidad?
