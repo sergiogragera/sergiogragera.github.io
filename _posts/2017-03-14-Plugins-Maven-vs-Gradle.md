@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Plugins: Maven vs Gradle"
+title: 'Plugins: Maven vs Gradle'
 published: true
 ---
 ### ¿Qué es un plugin?
@@ -16,7 +16,7 @@ En las herramientas de construcción de proyectos como son Maven o Gradle (adem�
 
 ### ¿Cómo los ejecutamos?
 
-Cuando en Maven ejecutamos `mvn clean` estamos ejecutando el plugin _maven-clean-plugin_ que incorpora nativamente la herramienta. Este plugin tiene un único _goal_ que son las acciones posibles a ejecutar, y en este caso ese _goal_ es 'clean' que tiene por objetivo eliminar el directorio _target_ de nuestros módulos. Además del _goal_ los _plugins_ tienen una eqtiqueta _executions_ que permite definir las diferentes ejecuciones del _plugin_, por ejemplo indicando diferentes fases donde ejecutarlo. Por otra parte, el _plugin_ puede configurarse con variables parametrizadas asignándose los valores en cada ejecución o de manera global.
+Cuando en Maven ejecutamos `mvn clean` estamos ejecutando el plugin _maven-clean-plugin_ que incorpora nativamente la herramienta. Este plugin tiene un único _goal_ que son las acciones posibles a ejecutar, y en este caso ese _goal_ es 'clean' que tiene por objetivo eliminar el directorio _target_ de nuestros módulos. Además del _goal_, los _plugins_ tienen una etiqueta _executions_ que permite definir las diferentes ejecuciones del _plugin_, por ejemplo indicando diferentes fases donde ejecutarlo. Por otra parte, el _plugin_ puede configurarse con variables parametrizadas asignándose los valores en cada ejecución o de manera global.
 
 ```xml
         <plugin>
@@ -34,7 +34,7 @@ Cuando en Maven ejecutamos `mvn clean` estamos ejecutando el plugin _maven-clean
         </plugin>
 ```
 
-Para ejecutar un plugin solo tenemos que invocarlo desde el comando `mvn` indicando el _plugin_ y _goal_ a ejecutar. Siguiendo con el ejemplo anterior podemos ejecutar el siguiente comando:
+Para ejecutar un plugin solo tenemos que invocarlo desde el comando `mvn` indicando el _plugin_ y _goal_ o _goals_ (ya que se pueden lanzar múltiples _goals_) a ejecutar. Siguiendo con el ejemplo anterior podemos ejecutar el siguiente comando:
 
 ```bash
         mvn org.apache.maven.plugins:maven-clean-plugin:2.5:clean
@@ -46,7 +46,7 @@ Al ser un plugin propio de Maven (sigue la convención de nomenclatura oficial *
         mvn clean:clean
 ```
 
-En Gradle ocurre algo similar. Tenemos por una parte la declaración del _plugin_ y la declaración de la aplicación o ejecución del mismo. En el caso siguiente tenemos la declaración de un plugin que no incluye Gradle por defecto como es el desarrollado por [SourceClear](https://app.sourceclear.com) y por tanto primero se define como dependencia y luego se aplica; por otro lado está la aplicación del _plugin_ **idea** que incluye la herramienta.
+En Gradle ocurre algo similar. Tenemos por una parte la declaración del _plugin_ y la declaración de la aplicación o ejecución del mismo. En el caso siguiente tenemos la declaración de un plugin que no incluye Gradle por defecto como es el desarrollado por [SourceClear](https://app.sourceclear.com) y por tanto primero, se define como dependencia y luego se aplica; por otro lado está la aplicación del _plugin_ **idea** que incluye la herramienta.
 
 ```groovy
         plugins {
@@ -57,7 +57,7 @@ En Gradle ocurre algo similar. Tenemos por una parte la declaración del _plugin
         apply plugin: 'idea'
 ```
 
-Cada _plugin_ define una tareas (lo que homologamente en Maven son los _goals_) y por tanto, la aplicación de un plugin implica la disposición de ejecutar estas tareas. Si queremos ejecutarlas en una fase concreta, o hacerla dependiente de la ejecución de otra tarea la podremos definir en el archivo _build.gradle_ como sigue:
+Cada _plugin_ define una tareas (los _goals_ de manera homóloga a Maven) y por tanto, la aplicación de un plugin implica la posibilidad de ejecutar estas tareas. Si queremos ejecutarlas en una fase concreta, o hacerla dependiente de la ejecución de otra tarea la podremos definir en el archivo _build.gradle_ como sigue:
 
 ```groovy
         clean.dependsOn(cleanIdea)
@@ -94,7 +94,7 @@ En Gradle solo hay tres fases, de inicialización, de configuración y de ejecuc
 
 ### ¿Cómo los configuramos?
 
-Los plugins aceptan parámetros y por tanto estos deben ser definidos, configurando así la ejecución del _plugin_. En el caso de Maven, tenemos la etiqueta _configuration_ que nos permite declarar los valores con los que queremos inicializar los parámetros que expone el _plugin_. Si lo hacemos a nivel de la etiqueta _execution_ estos valores solo se inicializarán cuando se ejecute esta ejecución, sin embargo también se nos permite declarar esta configuración en el nivel anterior, lo que hará que se utilicen por defecto estos valores aquí definidos.
+Los plugins aceptan parámetros y por tanto estos deben ser definidos, configurando así la ejecución del _plugin_. En el caso de Maven, tenemos la etiqueta _configuration_ que nos permite declarar los valores con los que queremos inicializar los parámetros que expone el _plugin_. Si lo hacemos a nivel de la etiqueta _execution_ estos valores solo se inicializarán cuando se ejecute esta ejecución, sin embargo, también se nos permite declarar esta configuración en el nivel anterior, lo que hará que se utilicen de manera global estos valores.
 
 ```xml
         <configuration>
