@@ -3,20 +3,21 @@ layout: post
 title: Plugins: Maven Vs Gradle
 published: true
 ---
-##Plugins: Maven vs Gradle
 
-###¿Qué es un plugin?
+## Plugins: Maven vs Gradle
+
+### ¿Qué es un plugin?
 
 Maven: build plugins (dejamos de lado los report plugins)
 Gradle: binary plugins (script plugins no los tocamos)
 
 Un plugin es aquella aplicación que, en un programa informático, añade una funcionalidad adicional o una nueva característica al software. En este caso puede nombrarse al plugin como un complemento o extensión de la herramienta [Maven](https://maven.apache.org/) o [Gradle](https://gradle.org/).
 
-###¿Cuál es su utilidad?
+### ¿Cuál es su utilidad?
 
 En las herramientas de construcción de proyectos como son Maven o Gradle (además de ser gestores de dependencias) podemos extender o añadir funcionalidades en las diferentes fases de construcción, lo que nos permite realizar acciones como ejecutar tests, validar código, minificar archivos, compilar, empaquetar y arrancar la aplicación en un servidor... Estas acciones de validación, preprocesamiento o postprocesamiento que podemos hacer externamente desde _scripts_ quedan integrados con la herramienta de construcción y por tanto tenemos un único punto desde donde ejecutar todas estas tareas. Además se gestionan como si de una dependencia se tratase, lo que nos permite importar y ejecutar los plugins que consideremos desde nuestro proyecto usando el gestor de dependencias, como por ejemplo, Nexus.
 
-###¿Cómo los ejecutamos?
+### ¿Cómo los ejecutamos?
 
 Cuando en Maven ejecutamos `mvn clean` estamos ejecutando el plugin _maven-clean-plugin_ que incorpora nativamente la herramienta. Este plugin tiene un único _goal_ que son las acciones posibles a ejecutar, y en este caso ese _goal_ es 'clean' que tiene por objetivo eliminar el directorio _target_ de nuestros módulos. Además del _goal_ los _plugins_ tienen una eqtiqueta _executions_ que permite definir las diferentes ejecuciones del _plugin_, por ejemplo indicando diferentes fases donde ejecutarlo. Por otra parte, el _plugin_ puede configurarse con variables parametrizadas asignándose los valores en cada ejecución o de manera global.
 
@@ -73,7 +74,7 @@ Y podemos ejecutar cualquier tarea ejecutando el comando _gradle_ seguido del no
         gradle idea
 ```
 
-###¿Cuándo se ejecutan?
+### ¿Cuándo se ejecutan?
 
 En Maven, los _plugins_ se ejecutan en las diferentes fases de construcción del proyecto agrupadas en tres ciclos de vida diferentes: _clean_, _default_ y _site_. Sin entrar en más detalle (véase [Maven Lifecycle Reference](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference)) tenemos fases dentro del ciclo de vida _default_ como son _process-resources_ (momento en el cual se copian los recursos en el directorio _target_), _compile_, _test_, _package_ (empaquetado del código compilado en formato JAR, por ejemplo) o _verify_ (comprobación de que los distintos controles como test unitarios, de integración o cuaquier otra comprobación se completa correctamente cuando se procesa el empaquetado cumpliendo así los criterios de calidad). La etiqueta que nos permite definir la fase de ejcución es _phase_ y estará definida dentro de la etiqueta de ejecución, en las múltiples ejecuciones posibles a definir.
 
@@ -94,7 +95,7 @@ En Gradle solo hay tres fases, de inicialización, de configuración y de ejecuc
         compileJava.finalizedBy(combineJs, minifyJs)
 ```
 
-###¿Cómo los configuramos?
+### ¿Cómo los configuramos?
 
 Los plugins aceptan parámetros y por tanto estos deben ser definidos, configurando así la ejecución del _plugin_. En el caso de Maven, tenemos la etiqueta _configuration_ que nos permite declarar los valores con los que queremos inicializar los parámetros que expone el _plugin_. Si lo hacemos a nivel de la etiqueta _execution_ estos valores solo se inicializarán cuando se ejecute esta ejecución, sin embargo también se nos permite declarar esta configuración en el nivel anterior, lo que hará que se utilicen por defecto estos valores aquí definidos.
 
@@ -117,9 +118,9 @@ En Gradle tenemos también una manera de configurar el _plugin_ y por tanto defi
         }
 ```
 
-##Desarrollando _plugins_ con Java
+## Desarrollando _plugins_ con Java
 
-###Maven
+### Maven
 
 Lo primero que tenemos que definir en el _pom.xml_ de nuestro proyecto _plugin_ (el cual deberá llamarse _name_-mave-plugin para cumplir con la nomenclatura propuesta por Maven y diferenciar de los _plugins_ oficiales de Maven que serán maven-_name_-plugin) es el tipo de empaquetado que hará Maven que será de tipo **maven-plugin**:
 
@@ -173,7 +174,7 @@ Una vez ejecutemos `mvn install` ya tendremos disponible el _plugin_ en el repos
 ```
 
 
-###Gradle
+### Gradle
 
 Para crear un _plugin_ de Gradle debemos definir en el archivo de configuración _build.gradle_ la dependencia a la api de Gradle:
 
