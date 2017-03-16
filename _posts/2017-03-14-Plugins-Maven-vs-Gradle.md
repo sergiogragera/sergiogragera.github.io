@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ##Plugins: Maven vs Gradle
 
