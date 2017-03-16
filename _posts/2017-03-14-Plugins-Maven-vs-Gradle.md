@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Plugins\: Maven vs Gradle
+title: "Plugins: Maven vs Gradle"
 published: true
 ---
 ### ¿Qué es un plugin?
