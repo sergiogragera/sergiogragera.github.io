@@ -43,6 +43,36 @@ Al ser un plugin propio de Maven (sigue la convención de nomenclatura oficial *
 mvn clean:clean
 ```
 
+Para saber los _goals_ disponibles en un _plugin_ podemos ejecutar otro _plugin_, propio de Maven, llamado _help_ que con el _goal_ _describe_ y el parámetro _plugin_ nos muestra la descripción del _plugin_:
+
+```
+mvn help:describe -Dplugin=clean
+
+...
+
+This plugin has 2 goals:
+
+clean:clean
+  Description: Goal which cleans the build.
+    
+    This attempts to clean a project's working directory of the files that were
+    generated at build-time. By default, it discovers and deletes the
+    directories configured in project.build.directory,
+    project.build.outputDirectory, project.build.testOutputDirectory, and
+    project.reporting.outputDirectory.
+    
+    
+    Files outside the default may also be included in the deletion by
+    configuring the filesets tag.
+
+clean:help
+  Description: Display help information on maven-clean-plugin.
+    Call mvn clean:help -Ddetail=true -Dgoal=<goal-name> to display parameter
+    details.
+    
+...
+```
+
 En Gradle ocurre algo similar. Tenemos por una parte la declaración del _plugin_ y la declaración de la aplicación o ejecución del mismo. En el caso siguiente tenemos la declaración de un plugin que no incluye Gradle por defecto como es el desarrollado por [SourceClear](https://app.sourceclear.com) y por tanto primero, se define como dependencia y luego se aplica; por otro lado está la aplicación del _plugin_ **idea** que incluye la herramienta.
 
 ```groovy
