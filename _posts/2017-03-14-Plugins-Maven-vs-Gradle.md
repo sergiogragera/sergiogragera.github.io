@@ -240,7 +240,7 @@ src/
   main/
     resoruces/
       META-INF/
-        gradle.plugins/
+        gradle-plugins/
           groupId.myplugin.properties
 ```
 
