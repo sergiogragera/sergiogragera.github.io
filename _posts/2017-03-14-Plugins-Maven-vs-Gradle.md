@@ -37,7 +37,7 @@ Para ejecutar un plugin solo tenemos que invocarlo desde el comando `mvn` indica
 mvn org.apache.maven.plugins:maven-clean-plugin:2.5:clean
 ```
 
-Al ser un plugin propio de Maven (sigue la convención de nomenclatura oficial **maven-_name_-plugin** y pertenece al paquete _org.apache.maven.plugins_) podemos invocarlo solo indicando el nombre (_name_ indicado entre las palabras maven y plugin), quedando la ejecución anterior como:
+Al ser un plugin propio de Maven (sigue la convención de nomenclatura oficial **maven-name-plugin** y pertenece al paquete _org.apache.maven.plugins_) podemos invocarlo solo indicando el nombre (_name_ indicado entre las palabras maven y plugin), quedando la ejecución anterior como:
 
 ```bash
 mvn clean:clean
