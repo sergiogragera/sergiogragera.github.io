@@ -96,7 +96,7 @@ pipelines:
     develop:
 	  - step:
         script:
-          - mvn verify
+          - mvn -B -s settings.xml verify
           
   tags:
     release-*:
