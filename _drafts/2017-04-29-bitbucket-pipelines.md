@@ -21,18 +21,22 @@ En primer lugar indicaremos la imagen de _docker_ a utilizar: queremos disponer 
 
 En segundo lugar vamos a indicar la rama en la que se ejecutará **Pipelines**, que como hemos visto antes será en _develop_. Por tanto, en el archivo de configuración veremos los _steps_ dentro de la siguiente sección:
 
+```yml
 pipelines:
   branches:
     develop:
+```
     
 También debemos indicar los _steps_ a reproducir. Estos pasos se ejecutarán en el contenedor de _Docker_ el cual se iniciará de nuevo en cada ejecución. En el caso de ejemplo que se propone aquí queremos ejecutar el comando de _Maven_ _verify_ en los _commits_ de la rama de _develop_. Por tanto, la sección quedará así:
 
+```yml
 pipelines:
   branches:
     develop:
 	  - step:
         script:
           - mvn verify
+```
           
 Una vez generado el archivo _bitbucket-pipelines.yml_ en la rama _develop_ y hagamos el _commit_ se ejecutará nuestro primer _Script_ de **Pipelines**. 
 
@@ -44,14 +48,14 @@ Es recomendable ejecutar _Maven_ con el parámetero -B que nos dará informació
 
 En el caso de usar el _plugin surefire_ que ejecuta los _test unitarios_ hay que tener en cuenta el uso de memoria que realiza. Si excedemos el uso de memoria, el proceso finalizará indicándonos que hemos excedido la memoria virtual asignada a nuestro proceso. En el caso de ejecutar _test unitarios_ que levanten contextos de _Spring_ para cada uno de ellos puede conllevar a este error; sin embargo solo sabremos que el proceso ha terminado por exceder la memoria pero no quién o qué ha sido el causante. Para evitar que el causante sea la ejecución de este _plugin_, en el archivo _pom.xml_ definiremos la siguiente propiedad:
 
+```xml
 <properties>
   ...
   <argLine>-Xms512m -Xmx1024m -XX:MaxPermSize=512m</argLine>
 </properties>
+```
 
 Vamos ahora a indicar la otra sección (dentro de la sección _pipelines_), que indicará los _steps_ cuando se cree un _tag_ que comience por la palabra _release-*_ (nos ayudaremos de los _wildcards_):
 
   tags:
     release-*:
-
-
