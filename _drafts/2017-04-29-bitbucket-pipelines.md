@@ -19,7 +19,11 @@ En el siguiente ejemplo vamos a configurar y ejecutar el script de _Pipelines_ p
 
 ### Imagen de Docker
 
-En primer lugar indicaremos la imagen de _docker_ a utilizar: queremos disponer de Java 7 y Maven 3; por tanto indicaremos en el archivo de configuración la propiedad **image: maven:3.3-jdk-7**.
+En primer lugar indicaremos la imagen de _docker_ a utilizar: queremos disponer de Java 7 y Maven 3; por tanto indicaremos en el archivo de configuración la propiedad:
+
+```yml
+image: maven:3.3-jdk-7**
+```
 
 ### Rama
 
@@ -48,7 +52,7 @@ Es común que las dependencias utilizadas en nuestro proyecto se encuentren en r
 
 Es recomendable ejecutar _Maven_ con el parámetero -B que nos dará información del proceso _build_ y por tanto en caso de fallo podremos obtener un mayor contexto que nos ayudará a depurar los errores.
 
-### En el caso de user el plugin surefire
+### En el caso de usar el plugin surefire
 
 En el caso de usar el _plugin surefire_ que ejecuta los _test unitarios_ hay que tener en cuenta el uso de memoria que realiza. Si excedemos el uso de memoria, el proceso finalizará indicándonos que hemos excedido la memoria virtual asignada a nuestro proceso. En el caso de ejecutar _test unitarios_ que levanten contextos de _Spring_ para cada uno de ellos puede conllevar a este error; sin embargo solo sabremos que el proceso ha terminado por exceder la memoria pero no quién o qué ha sido el causante. Para evitar que el causante sea la ejecución de este _plugin_, en el archivo _pom.xml_ definiremos la siguiente propiedad:
 
@@ -80,4 +84,23 @@ En este caso, cada vez que se haga una versión _release_ del código, queremos 
         - ./scripts/release.bash
 ```
 
-En el caso anterior también contábamos con el comando _git_ y por lo tanto podemos hacer un _push_ desde el contenedor _Docker_ usando ssh. **Pipelines** nos permite definir variables de contexto que podemos utilizar dentro del _script YAML_ y por tanto definir claves privadas o _tokens_ con los que acceder a servicios externos.
+En el caso anterior también contábamos con el comando _git_ y por lo tanto podemos hacer un _push_ desde el contenedor _Docker_ usando ssh. **Pipelines** nos permite definir variables de contexto que podemos utilizar en la ejecución de cada **Pipeline** (en el propio YAML o incluso en el _script de bash_ del ejemplo anterior) y por tanto definir claves privadas o _tokens_ con los que acceder a servicios externos.
+
+Finalmente, nuestro archivo _bitbucket-pipelines.yml_ ha quedado así:
+
+```yml
+image: maven:3.3-jdk-7**
+
+pipelines:
+  branches:
+    develop:
+	  - step:
+        script:
+          - mvn verify
+          
+  tags:
+    release-*:
+      script:
+        - chmod +x scripts/release.bash
+        - ./scripts/release.bash
+```
