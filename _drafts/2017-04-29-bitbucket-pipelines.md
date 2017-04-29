@@ -17,7 +17,11 @@ Primero debemos habilitar **Pipelines** en el repositorio y a continuación se n
 
 En el siguiente ejemplo vamos a configurar y ejecutar el script de _Pipelines_ para un proyecto Java construido con Maven únicamente cuando hagamos _commits_ en la rama de _develop_ (siguiendo el modelo de ramificaciones de Vincent Driessen [git-flow](https://danielkummer.github.io/git-flow-cheatsheet/index.es_ES.html)) o se cree en el repositorio un _tag_ específico como puede ser que comience por _release_, en cuyo caso queremos realizar una acciones adicionales.
 
+### Imagen de Docker
+
 En primer lugar indicaremos la imagen de _docker_ a utilizar: queremos disponer de Java 7 y Maven 3; por tanto indicaremos en el archivo de configuración la propiedad **image: maven:3.3-jdk-7**.
+
+### Rama
 
 En segundo lugar vamos a indicar la rama en la que se ejecutará **Pipelines**, que como hemos visto antes será en _develop_. Por tanto, en el archivo de configuración veremos los _steps_ dentro de la siguiente sección:
 
@@ -55,7 +59,25 @@ En el caso de usar el _plugin surefire_ que ejecuta los _test unitarios_ hay que
 </properties>
 ```
 
-Vamos ahora a indicar la otra sección (dentro de la sección _pipelines_), que indicará los _steps_ cuando se cree un _tag_ que comience por la palabra _release-*_ (nos ayudaremos de los _wildcards_):
+Con esto nos aseguramos que la ejecución de los test solo consuma como máximo 1GB comenzando a utilizar 512MB. Puesto que _Bitbucket_ nos ofrece 4GB de memoria podemos aumentar esta cifra si lo consideramos oportuno.
 
+### Tag
+
+Vamos ahora a indicar la otra sección (dentro de la sección _pipelines_), que indicará los _steps_ a realizar cuando se cree un _tag_ que comience por la palabra _release-*_ (nos ayudaremos de los _wildcards_):
+
+```yml
   tags:
     release-*:
+```
+    
+En este caso, cada vez que se haga una versión _release_ del código, queremos ejecutar un _scrip de bash_ el cual nos realiza de manera automática un _deploy_ en _Heroku_ por ejemplo. Solo tendríamos que incluir el _script_ dentro de nuestro código e indicar la ejecución del _step_:
+
+```yml
+  tags:
+    release-*:
+      script:
+        - chmod +x scripts/release.bash
+        - ./scripts/release.bash
+```
+
+En el caso anterior también contábamos con el comando _git_ y por lo tanto podemos hacer un _push_ desde el contenedor _Docker_ usando ssh. **Pipelines** nos permite definir variables de contexto que podemos utilizar dentro del _script YAML_ y por tanto definir claves privadas o _tokens_ con los que acceder a servicios externos.
