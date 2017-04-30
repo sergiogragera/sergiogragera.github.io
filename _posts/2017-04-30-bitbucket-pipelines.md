@@ -17,9 +17,9 @@ El _script_ a ejecutar debe estar en el directorio raíz y llamarse **bitbucket-
 
 <center><img src="{{site.baseurl}}/images/pipelines_yml_structure2.png" alt="Estructura del archivo bitbucket-pipelines.yml" width="450"></center>
 
-## Ejecutando _Pipelines_
+## Ejecutando **Pipelines**
 
-En el siguiente ejemplo vamos a configurar y ejecutar el script de _Pipelines_ para un proyecto Java construido con Maven únicamente cuando hagamos _commits_ en la rama de _develop_ (siguiendo el modelo de ramificaciones de Vincent Driessen [git-flow](https://danielkummer.github.io/git-flow-cheatsheet/index.es_ES.html)) o se cree en el repositorio un _tag_ específico con la condición de que su nombre comience por _release_, en cuyo caso queremos realizar una acciones adicionales.
+En el siguiente ejemplo vamos a configurar y ejecutar el script de **Pipelines** para un proyecto Java construido con Maven únicamente cuando hagamos _commits_ en la rama de _develop_ (siguiendo el modelo de ramificaciones de Vincent Driessen [git-flow](https://danielkummer.github.io/git-flow-cheatsheet/index.es_ES.html)) o se cree en el repositorio un _tag_ específico con la condición de que su nombre comience por _release_, en cuyo caso queremos realizar una acciones adicionales.
 
 ### Contenedor
 
@@ -109,7 +109,7 @@ pipelines:
         - ./scripts/release.bash
 ```
 
-## Ejecutando Pipelines en local
+## Ejecutando **Pipelines** en local
 
 Si queremos ejecutar **Pipelines** en la máquina local solo tenemos que instalar _Docker_ y ejecutar desde el terminal el siguiente comando:
 
