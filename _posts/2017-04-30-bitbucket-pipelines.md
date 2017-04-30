@@ -11,11 +11,11 @@ La ejecución se hará sobre un contenedor [_Docker_](https://www.docker.com), p
 
 Primero debemos habilitar [**Pipelines**](https://confluence.atlassian.com/bitbucket/bitbucket-pipelines-792496469.html) en el repositorio y a continuación se nos mostrarán las diferentes plantillas a seleccionar dependiendo del lenguaje utilizado. 
 
-<center><img src="{{site.baseurl}}/images/screen1.png" alt="Sección Pipelines en Bitbucket" width="450"></center>
+<center><img src="{{ site.baseurl }}/images/screen1.png" alt="Sección Pipelines en Bitbucket" width="450"></center>
 
 El _script_ a ejecutar debe estar en el directorio raíz y llamarse **bitbucket-pipelines.yml**; este archivo indicará en formato _YAML_ la imagen de _Docker_, la rama a la que afecta, los pasos a ejecutar...
 
-<center><img src="{{site.baseurl}}/images/pipelines_yml_structure2.png" alt="Estructura del archivo bitbucket-pipelines.yml" width="450"></center>
+<center><img src="{{ site.baseurl }}/images/pipelines_yml_structure2.png" alt="Estructura del archivo bitbucket-pipelines.yml" width="450"></center>
 
 ## Ejecutando **Pipelines**
 
@@ -129,8 +129,8 @@ Por defecto nuestro **Pipeline** se ejecutará siempre que se lean nuevos _commi
 
 Al ejecutarse nuestro **Pipeline** es posible obtener dos estados: correcto o incorrecto. Si la ejecución de nuestro _script_ provoca un mensaje por la salida de error, **Pipelines** acabará con el estado incorrecto indicando que la ejecución falló (y además lo notificará enviando un mail al propietario del _commit_ que causó el error):
 
-<center><img src="{{site.baseurl}}/images/ko.png" alt="Estructura del archivo bitbucket-pipelines.yml" width="450"></center>
+<center><img src="{{ site.baseurl }}/images/ko.png" alt="Estructura del archivo bitbucket-pipelines.yml" width="450"></center>
 
 En el caso contrario nos marcará que el estado es correcto:
 
-<center><img src="{{site.baseurl}}/images/ok.png" alt="Estructura del archivo bitbucket-pipelines.yml" width="450"></center>
+<center><img src="{{ site.baseurl }}/images/ok.png" alt="Estructura del archivo bitbucket-pipelines.yml" width="450"></center>
