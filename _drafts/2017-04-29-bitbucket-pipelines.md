@@ -9,7 +9,11 @@ La ejecución se hará sobre un contenedor [_Docker_](https://www.docker.com), p
 
 ## ¿Cómo empezar?
 
-Primero debemos habilitar [**Pipelines**](https://confluence.atlassian.com/bitbucket/bitbucket-pipelines-792496469.html) en el repositorio y a continuación se nos mostrarán las diferentes plantillas a seleccionar dependiendo del lenguaje utilizado. El _script_ a ejecutar debe estar en el directorio raíz y llamarse **bitbucket-pipelines.yml**; este archivo indicará en formato _YAML_ la imagen de _Docker_, la rama a la que afecta, los pasos a ejecutar...
+Primero debemos habilitar [**Pipelines**](https://confluence.atlassian.com/bitbucket/bitbucket-pipelines-792496469.html) en el repositorio y a continuación se nos mostrarán las diferentes plantillas a seleccionar dependiendo del lenguaje utilizado. 
+
+Imagen habilitar pipeline
+
+El _script_ a ejecutar debe estar en el directorio raíz y llamarse **bitbucket-pipelines.yml**; este archivo indicará en formato _YAML_ la imagen de _Docker_, la rama a la que afecta, los pasos a ejecutar...
 
 [Imagen](https://confluence.atlassian.com/bitbucket/files/792298910/859457211/6/1490664866213/pipelines_yml_structure2.png)
 
