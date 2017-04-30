@@ -38,7 +38,9 @@ pipelines:
   branches:
     develop:
 ```
-    
+ 
+## Acciones
+
 También debemos indicar los _steps_ a reproducir. Estos pasos se ejecutarán en el contenedor de _Docker_ el cual se iniciará de nuevo en cada ejecución. En el caso de ejemplo que se propone aquí, queremos ejecutar el comando de _Maven_ llamado _verify_ en los _commits_ de la rama _develop_. Por tanto, la sección quedará así:
 
 ```yml
@@ -56,7 +58,7 @@ Es común que las dependencias utilizadas en nuestro proyecto se encuentren en r
 
 Es recomendable ejecutar _Maven_ con el parámetero -B que nos dará información del proceso _build_ y por tanto en caso de fallo podremos obtener un mayor contexto que nos ayudará a depurar los errores.
 
-### En el caso de usar el _plugin surefire_
+### Problemas con el _plugin surefire_
 
 En el caso de usar el [_plugin surefire_](http://maven.apache.org/surefire/maven-surefire-plugin) que ejecuta los _test unitarios_ hay que tener en cuenta el uso de memoria que realiza. Si excedemos el uso de memoria, el proceso de **Pipelines** finalizará indicándonos que hemos excedido la memoria virtual asignada a nuestro proceso. 
 
