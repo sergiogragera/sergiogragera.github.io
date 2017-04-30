@@ -58,7 +58,11 @@ Es recomendable ejecutar _Maven_ con el parámetero -B que nos dará informació
 
 ### En el caso de usar el _plugin surefire_
 
-En el caso de usar el _plugin surefire_ que ejecuta los _test unitarios_ hay que tener en cuenta el uso de memoria que realiza. Si excedemos el uso de memoria, el proceso de **Pipelines** finalizará indicándonos que hemos excedido la memoria virtual asignada a nuestro proceso. Puede provocarse este error en el caso de ejecutar _test unitarios_ que levanten contextos de _Spring_ para cada uno de los tests ejecutados; sin embargo solo sabremos que el proceso ha terminado por exceder la memoria, pero no quién o qué ha sido el causante del error. Para evitar que el motivo sea la ejecución de este _plugin_, en el archivo _pom.xml_ de nuestro proyecto definiremos la siguiente propiedad:
+En el caso de usar el _plugin surefire_ que ejecuta los _test unitarios_ hay que tener en cuenta el uso de memoria que realiza. Si excedemos el uso de memoria, el proceso de **Pipelines** finalizará indicándonos que hemos excedido la memoria virtual asignada a nuestro proceso. 
+
+<center><img src="{{ site.baseurl }}/images/ko-memory.png" alt="Sección Pipelines en Bitbucket" width="450"></center>
+
+Puede provocarse este error en el caso de ejecutar _test unitarios_ que levanten contextos de _Spring_ para cada uno de los tests ejecutados; sin embargo solo sabremos que el proceso ha terminado por exceder la memoria, pero no quién o qué ha sido el causante del error. Para evitar que el motivo sea la ejecución de este _plugin_, en el archivo _pom.xml_ de nuestro proyecto definiremos la siguiente propiedad:
 
 ```xml
 <properties>
