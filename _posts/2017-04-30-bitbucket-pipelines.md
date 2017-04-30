@@ -39,7 +39,7 @@ pipelines:
     develop:
 ```
     
-También debemos indicar los _steps_ a reproducir. Estos pasos se ejecutarán en el contenedor de _Docker_ el cual se iniciará de nuevo en cada ejecución. En el caso de ejemplo que se propone aquí queremos ejecutar el comando de _Maven_ llamado _verify_ en los _commits_ de la rama de _develop_. Por tanto, la sección quedará así:
+También debemos indicar los _steps_ a reproducir. Estos pasos se ejecutarán en el contenedor de _Docker_ el cual se iniciará de nuevo en cada ejecución. En el caso de ejemplo que se propone aquí, queremos ejecutar el comando de _Maven_ llamado _verify_ en los _commits_ de la rama _develop_. Por tanto, la sección quedará así:
 
 ```yml
 pipelines:
