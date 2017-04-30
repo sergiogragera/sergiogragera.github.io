@@ -31,7 +31,7 @@ image: maven:3.3-jdk-7
 
 ### Rama
 
-En segundo lugar vamos a indicar la rama de nuestro en la que se ejecutará **Pipelines** (bajo la sección _pipelines_ podemos indicar la sección _default_ que nos permitirá ejecutar el script en todas las ramas), que como hemos dicho antes, será solo cuando se revisen _commits_ en _develop_. Por tanto, en el archivo de configuración veremos los _steps_ dentro de la siguiente sección:
+En segundo lugar vamos a indicar la rama de nuestro repositorio en la que se ejecutará **Pipelines** (bajo la sección _pipelines_ podemos indicar la sección _default_ que nos permitirá ejecutar el script en todas las ramas), que como hemos dicho antes, será solo cuando se revisen _commits_ en _develop_. Por tanto, en el archivo de configuración veremos los _steps_ dentro de la siguiente sección:
 
 ```yml
 pipelines:
