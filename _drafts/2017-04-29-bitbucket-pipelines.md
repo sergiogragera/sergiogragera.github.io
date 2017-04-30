@@ -118,3 +118,16 @@ Esto creará un contenedor _Docker_ con las carácterísticas definidas y que ac
 ```bash
 docker$ mvn -B -s settings.xml verify
 ```
+
+## Resultados
+
+Por defecto nuestro **Pipeline** se ejecutará siempre que se lean nuevos _commits_ pero desde la web de _Bitbucket_ siempre podemos ejecutar de nuevo cada **Pipeline** manualmente.
+
+Al ejecutarse nuestro **Pipeline** es posible obtener dos estados: correcto o incorrecto. Si la ejecución de nuestro _script_ provoca un mensaje por la salida de error, **Pipelines** acabará con el estado incorrecto indicando que la ejecución falló (y además lo notificará enviando un mail al propietario del _commit_ que causó el error):
+
+Imagen error
+
+En el caso contrario nos marcará que el estado es correcto:
+
+Imagen ok
+
