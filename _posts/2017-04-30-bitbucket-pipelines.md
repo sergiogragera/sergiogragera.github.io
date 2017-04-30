@@ -58,7 +58,7 @@ Es recomendable ejecutar _Maven_ con el parámetero -B que nos dará informació
 
 ### En el caso de usar el _plugin surefire_
 
-En el caso de usar el _plugin surefire_ que ejecuta los _test unitarios_ hay que tener en cuenta el uso de memoria que realiza. Si excedemos el uso de memoria, el proceso de **Pipelines** finalizará indicándonos que hemos excedido la memoria virtual asignada a nuestro proceso. 
+En el caso de usar el [_plugin surefire_](http://maven.apache.org/surefire/maven-surefire-plugin) que ejecuta los _test unitarios_ hay que tener en cuenta el uso de memoria que realiza. Si excedemos el uso de memoria, el proceso de **Pipelines** finalizará indicándonos que hemos excedido la memoria virtual asignada a nuestro proceso. 
 
 <center><img src="{{ site.baseurl }}/images/ko-memory.png" alt="Sección Pipelines en Bitbucket" width="450"></center>
 
