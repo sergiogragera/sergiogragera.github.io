@@ -1,8 +1,6 @@
 ---
 published: true
 ---
-## Bitbucket Pipelines
-
 La integración continua ha llegado a los repositorios de [Bitbucket](https://bitbucket.org), y todavía, de manera gratuita aunque tiene sus limitaciones como el resto de servicios. Por ahora, nos permitirá la ejecución ininterrumpida de _scripts_ durante 2 horas donde contaremos con 4GB de RAM y 5GB de espacio en disco. La limitación mensual es de 500 minutos por usuario, y para los equipos de más de un usuario se multiplican estos minutos por cada uno, acumulando los minutos de ejecución (más información sobre las limitaciones del servicio [aquí](https://confluence.atlassian.com/bitbucket/limitations-of-bitbucket-pipelines-827106051.html)).
 
 La ejecución se hará sobre un contenedor [_Docker_](https://www.docker.com), pudiendo seleccionar cuaquier imagen pública o privada de [_Docker Hub_](https://hub.docker.com) o incluso nuestro propio contenedor con acceso público.
