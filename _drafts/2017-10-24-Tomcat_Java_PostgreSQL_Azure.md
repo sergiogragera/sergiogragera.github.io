@@ -17,7 +17,7 @@ Básico, 50 unidades de proceso, 50 GB
 
 Y dependiendo del nombre seleccionado para el servidor tendremos la url de conexión siguiente:
 
-jdbc:postgresql://\[SERVER_NAME\].postgres.database.azure.com:5432/\[DATABASE_NAME\]
+jdbc:postgresql://gocreuniones2.postgres.database.azure.com:5432/postgres?user=\[user@server\]&password=\[password\]&ssl=true
 
 Si el servidor tiene el servicio de SSL habilitado necesitaremos descargar el certificado para usarlo en las conexiones que realicemos al servidor de base de datos creado. Para esto accederemos a la página de documentación sobre la [conexión con SSL](https://docs.microsoft.com/es-es/azure/postgresql/concepts-ssl-connection-security) y descargaremos el certificado desde el [enlace proporcionado](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Tras esto, debemos decodificar el archivo descargado almacenándolo en un archivo local que utilizaremos en las conexiones:
 
@@ -43,7 +43,7 @@ Tras la selección de un plan de _App Services_ realizaremos la configuración d
 
 <center><img src="{{ site.baseurl }}/images/configuracion_basica.png" alt="Configuración básica" width="450"></center>
 
-Siempre podremos volver a editar esta configuración pero inicialmente podemos definir como propiedades de conexión la url de BBDD para que Azure nos permita hacer copias de seguridad del servicio de aplicaiones junto con los datos de la BBDD. Para esto es necesario definir la cadena de conexión (notése que la url del jdbc se oculta por seguridad pero deberemos indicar la cadena de conexión con usuario y contraseña).
+Siempre podremos volver a editar esta configuración pero inicialmente podemos definir como propiedades de conexión la url de BBDD para que Azure nos permita hacer copias de seguridad del servicio de aplicaiones junto con los datos de la BBDD. Para esto es necesario definir la cadena de conexión (notése que en la imagen siguiente la url del jdbc se oculta por seguridad pero deberemos indicar la cadena de conexión con usuario y contraseña).
 
 Esta propiedad nos servirá, además de como veremos en el siguiente párrafo para realizar copias de seguridad de la aplicación junto con la BBDD, para poder llamar dentro de nuestra aplicación a la variable del sistema con este valor y así definir las propiedades de configuración.
 
