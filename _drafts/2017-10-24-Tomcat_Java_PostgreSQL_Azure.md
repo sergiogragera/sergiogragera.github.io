@@ -71,6 +71,6 @@ TODO: cómo subir nuestro archivo WAR por FTP en el directorio home\site\wwwroot
 
 ### Referencias
 
-TODO: Debug remoto desde IntelliJ IDEA (¡¡¡¡no está disponible por ineptos!!!!)
+TODO: Kit para IntelliJ IDEA y comentar que el debug remoto desde IntelliJ IDEA lo han quitado (¡¡¡¡no está disponible por ineptos!!!!)
 
 Un post con la [comparativa de precios entre AWS, Azure y Google Cloud](https://www.simform.com/compute-pricing-comparison-aws-azure-googlecloud/) muy detallado.
