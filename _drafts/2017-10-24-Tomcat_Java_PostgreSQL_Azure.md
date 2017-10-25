@@ -7,7 +7,7 @@ Azure es un conjunto integral de servicios en la nube que permite crear, impleme
 
 [Aquí](https://azure.microsoft.com/es-es/pricing/) se puede ver el listado de precios de sus múltiples servicios y además cuenta con una [calculadora de precios](https://azure.microsoft.com/en-us/pricing/calculator/).
 
-## Creando la base de datos
+### Creando la base de datos
 
 En este despliegue vamos a usar la [BBDD de Azure para servidor PostgreSQL](https://docs.microsoft.com/es-es/azure/postgresql/quickstart-create-server-database-portal) que se peude encontrar en el menú de bases de datos llamado **SQL Database**. Necesitaremos indicar el nombre del servidor, grupo de recursos, etc.
 
@@ -69,4 +69,8 @@ TODO: hablar de las credenciales de implementación
 
 TODO: cómo subir nuestro archivo WAR por FTP en el directorio home\site\wwwroot\webapps
 
-### Debug remoto desde IntelliJ IDEA (¡¡¡¡no está disponible por ineptos!!!!)
+### Referencias
+
+TODO: Debug remoto desde IntelliJ IDEA (¡¡¡¡no está disponible por ineptos!!!!)
+
+TODO: [Comparativa de precios entre AWS, Azure y Google Cloud](https://www.simform.com/compute-pricing-comparison-aws-azure-googlecloud/)
