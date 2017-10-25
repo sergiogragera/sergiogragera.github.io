@@ -73,4 +73,4 @@ TODO: cómo subir nuestro archivo WAR por FTP en el directorio home\site\wwwroot
 
 TODO: Debug remoto desde IntelliJ IDEA (¡¡¡¡no está disponible por ineptos!!!!)
 
-TODO: [Comparativa de precios entre AWS, Azure y Google Cloud](https://www.simform.com/compute-pricing-comparison-aws-azure-googlecloud/)
+Un post con la [comparativa de precios entre AWS, Azure y Google Cloud](https://www.simform.com/compute-pricing-comparison-aws-azure-googlecloud/) muy detallado.
