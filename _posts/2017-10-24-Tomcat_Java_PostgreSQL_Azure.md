@@ -21,9 +21,7 @@ Básico, 50 unidades de proceso, 50 GB, sin garantía de IOPS
 
 Y dependiendo del nombre seleccionado para el servidor tendremos la url de conexión siguiente:
 
-```
-jdbc:postgresql://gocreuniones2.postgres.database.azure.com:5432/postgres?user=\[user@server\]&password=\[password\]&ssl=true
-```
+```jdbc:postgresql://gocreuniones2.postgres.database.azure.com:5432/postgres?user=\[user@server\]&password=\[password\]&ssl=true```
 
 Si el servidor tiene el servicio de SSL habilitado necesitaremos descargar el certificado para usarlo en las conexiones que realicemos al servidor creado. Para esto accederemos a la página de documentación sobre la [conexión con SSL](https://docs.microsoft.com/es-es/azure/postgresql/concepts-ssl-connection-security) y descargaremos el certificado desde el [enlace proporcionado](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Tras esto, debemos decodificar el archivo descargado almacenándolo en un archivo local que utilizaremos en las conexiones (lo llamaremos root.crt):
 
