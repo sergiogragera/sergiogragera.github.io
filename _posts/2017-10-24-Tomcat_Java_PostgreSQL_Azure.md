@@ -81,7 +81,6 @@ Vamos a explicar ahora como hacer el despliegue de nuestra aplicación web Java.
 Para poder conectar por FTP a nuestro servidor de aplicaciones debemos configurar primero las credenciales de acceso. Accedemos por tanto al apartado _Credenciales de implementación_ donde definiremos el usuario y contraseña a utilizar en la conexión FTP.
 
 En la sección de menú _Introducción_ se nos muestra toda la información relativa a la conexión:
-
 ```
 FTP/Nombre de usuario de implementación
 test\test
