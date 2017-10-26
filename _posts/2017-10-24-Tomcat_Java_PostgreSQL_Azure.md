@@ -79,12 +79,15 @@ Para poder conectar por FTP a nuestro servidor de aplicaciones debemos configura
 En la sección de menú _Introducción_ se nos muestra toda la información relativa a la conexión:
 
 ```FTP/Nombre de usuario de implementación```
+
 ```test\test```
 
 ```Nombre de host de FTP```
+
 ```ftp://waws-prod-am2-xxx.ftp.azurewebsites.windows.net```
 
 ```Nombre de host de FTPS```
+
 ```ftps://waws-prod-am2-xxx.ftp.azurewebsites.windows.net```
 
 Finalmente solo tenemos que conectar al servidor FTP y copiar nuestro archivo WAR en el directorio _webapps_ y entonces será cuando _App Services_ (concretamente el contenedor Tomcat) desplegará automaticamente nuestra aplicación cada vez que subamos un archivo.
