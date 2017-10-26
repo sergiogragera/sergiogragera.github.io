@@ -43,7 +43,7 @@ Seleccionamos ahora la entrada de menú _App Services_ donde agregaremos nuestro
 
 Tras la selección de un _Plan de App Services_ realizaremos la configuración de nuestro servicio. En nuestro caso seleccionaremos la versión de Java 8 y el contenedor web, que al haber seleccionado Java, nos permite elegir entre diferentes versiones de Tomcat y Jetty. En el ejemplo elegiremos Tomcat 8.0 en su versión más reciente (dejaremos que sea Azure quien se encargue de actualizar la versión de Tomcat 8 en sucesivas versiones y correcciones). También elegiremos la plataforma de 64 bits.
 
-<center><img src="{{ site.baseurl }}/images/configuracion_basica.png" alt="Configuración básica" width="450"></center>
+<center><img src="{{ site.baseurl }}/images/configuracion_basica.png" alt="Configuración básica"></center>
 
 Siempre podremos volver a editar esta configuración pero inicialmente podemos definir como propiedades de conexión la url de BBDD para que Azure nos permita hacer copias de seguridad del servicio de aplicaiones junto con los datos de la BBDD. Para esto es necesario definir la cadena de conexión (notése que en la imagen siguiente la url del jdbc se oculta por seguridad pero deberemos indicar la cadena de conexión con usuario y contraseña).
 
