@@ -56,19 +56,19 @@ En el ejemplo llamamos a la variable GOC_JDBC y según la especificación para v
 - Base de datos SQL: SQLAZURECONNSTR_
 - Personalizado: CUSTOMCONNSTR_
 
-<center><img src="{{ site.baseurl }}/images/configuracion_conexion.png" alt="Configuración de la conexión de BBDD para back up" width="550"></center>
+<center><img src="{{ site.baseurl }}/images/configuracion_conexion.png" alt="Configuración de la conexión de BBDD para back up" width="650"></center>
 
 Una vez finalizada la configuración seleccionaremos la entrada de menú de _Copias de seguridad_. Aquí debemos seleccionar un _storage_ (el plan seleccionado anteriormente nos permite crear uno de 50 GB) donde ir guardando las copias y podemos programar la hora y fecha en las que se haran estas mismas. Además incluiremos la copia de la BBDD indicando la propiedad de la cadena de conexión que habíamos definido en el apartado anterior.
 
-<center><img src="{{ site.baseurl }}/images/configuracion_backup.png" alt="Configuración de back up" width="450"></center>
+<center><img src="{{ site.baseurl }}/images/configuracion_backup.png" alt="Configuración de back up" width="650"></center>
 
 Finalmente activaremos el registro de _logs_ desde la sección _Registros de diagnósticos_ donde podemos definir el _Registro de la aplicación_ en el sistema de archivos (esta opción se deshabilitará a las 12 horas) eligiendo también el nivel de log (detallado equivale al nivel DEBUG). Podremos acceder a estos archivos desde el menú _Secuencias de registro_.
 
-<center><img src="{{ site.baseurl }}/images/logs.png" alt="Logs" width="450"></center>
+<center><img src="{{ site.baseurl }}/images/logs.png" alt="Logs" width="650"></center>
 
 Otra herramienta a tener en cuenta es Kudu que nos permite lanzar un terminal en el directorio donde se encuentra alojado nuestro servicio de aplicaciones. Aquí podemos navegar hasta el directorio home\site\wwwroot\webapps donde encontraremos nuestras aplicaciones desplegadas así como podremos hacer tail sobre el archivo de _log_ que estemos escribiendo desde nuestra aplicación, por ejemplo con _logback_.
 
-<center><img src="{{ site.baseurl }}/images/kudu_tail.png" alt="Herramienta Kudu online" width="450"></center>
+<center><img src="{{ site.baseurl }}/images/kudu_tail.png" alt="Herramienta Kudu online" width="650"></center>
 
 ### Desplegando nuestra aplicación vía FTP
 
@@ -99,7 +99,7 @@ Para recuperar un recurso, desde el menú de recursos y accediendo al nombre del
 
 La transferencia de datos tiene un coste a partir de los primeros 5 GB de 0.074€ por cada _gigabyte_ en la zona 1 (que incluye a Europa y Estados Unidos entre otras).
 
-<center><img src="{{ site.baseurl }}/images/calculator.png" alt="Calculadora de precios" width="450"></center>
+<center><img src="{{ site.baseurl }}/images/calculator.png" alt="Calculadora de precios"></center>
 
 ### Referencias
 
