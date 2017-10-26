@@ -9,11 +9,11 @@ Azure es un conjunto integral de servicios en la nube que permite crear, impleme
 
 ### Creando la base de datos
 
-En este despliegue vamos a usar la [BBDD de Azure para servidor PostgreSQL](https://docs.microsoft.com/es-es/azure/postgresql/quickstart-create-server-database-portal) que se peude encontrar en el menú de bases de datos llamado **SQL Database**. Necesitaremos indicar el nombre del servidor, grupo de recursos, etc.
+En este despliegue vamos a usar la [BBDD de Azure para servidor PostgreSQL](https://docs.microsoft.com/es-es/azure/postgresql/quickstart-create-server-database-portal) que se puede encontrar en el menú de bases de datos llamado **SQL Database**. Necesitaremos indicar el nombre del servidor, grupo de recursos (su función es agruparnos los grupos de recursos para poder gestionarlos de manera común y nos facilitará la vida organizando estos recursos cuando disponemos de múltiples servicios de aplicaciones y clientes), etc.
 
-El tipo de rendimiento que hemos seleccionado en el ejemplo es:
+El tipo de rendimiento que hemos seleccionado en el ejemplo es el mínimo para este tipo de BBDD (plan de tarifa _Básico_, sin embargo, el plan Estándar es la opción ideal para aplicaciones en la nube que necesiten de un valor de E/S por segundo garantizado con un alto rendimiento). Es importante comentar que por ahora no se permite el escalado vertical entre planes de tarifas y solo se nos permite el escalado horizontal dentro de un mismo plan. Por tanto, este nos permitirá escalar de 50 unidades de proceso (medida combinada de recursos de CPU y memoria: 50 equivalen a medio núcleo) a 100. Para poder escalar de 100 a 200, 300, etc. debemos cambiar el plan de rendimiento y por tanto crear un nuevo servidor de BBDD:
 
-Básico, 50 unidades de proceso, 50 GB
+Básico, 50 unidades de proceso, 50 GB, sin garantía de IOPS
 
 Y dependiendo del nombre seleccionado para el servidor tendremos la url de conexión siguiente:
 
