@@ -66,7 +66,7 @@ Finalmente activaremos el registro de _logs_ desde la sección _Registros de dia
 
 <center><img src="{{ site.baseurl }}/images/logs.png" alt="Logs"></center>
 
-Otra herramienta a tener en cuenta es Kudu que nos permite lanzar un terminal en el directorio donde se encuentra alojado nuestro servicio de aplicaciones. Aquí podemos navegar hasta el directorio home\site\wwwroot\webapps donde encontraremos nuestras aplicaciones desplegadas así como podremos hacer tail sobre el archivo de _log_ que estemos escribiendo desde nuestra aplicación, por ejemplo con _logback_.
+Otra herramienta a tener en cuenta es Kudu que nos permite lanzar un terminal en el directorio donde se encuentra alojado nuestro servicio de aplicaciones. Aquí podemos navegar hasta el directorio home\site\wwwroot\webapps donde encontraremos nuestras aplicaciones desplegadas así como podremos hacer _tail_ sobre el archivo de _log_ que estemos escribiendo desde nuestra aplicación, por ejemplo con _logback_.
 
 <center><img src="{{ site.baseurl }}/images/kudu_tail.png" alt="Herramienta Kudu online"></center>
 
