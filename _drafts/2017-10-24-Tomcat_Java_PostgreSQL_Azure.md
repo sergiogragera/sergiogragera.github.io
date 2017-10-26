@@ -70,12 +70,29 @@ Otra herramienta a tener en cuenta es Kudu que nos permite lanzar un terminal en
 
 ### Desplegando nuestra aplicación vía FTP
 
-TODO: hablar de las credenciales de implementación
+Vamos a explicar ahora como hacer el despliegue de nuestra aplicación web Java. Para esto hemos seleccionado la opción de subir el archivo WAR en el directorio creado por Azure para el despliegue tras elegir como contenedor Tomcat: el directorio home\site\wwwroot\webapps.
 
-TODO: cómo subir nuestro archivo WAR por FTP en el directorio home\site\wwwroot\webapps
+Para poder conectar por FTP a nuestro servidor de aplicaciones debemos configurar primero las credenciales de acceso. Accedemos por tanto al apartado _Credenciales de implementación_ donde definiremos el usuario y contraseña a utilizar en la conexión FTP.
+
+En la sección de menú _Introducción_ se nos muestra toda la información relativa a la conexión:
+
+```
+FTP/Nombre de usuario de implementación
+test\test
+
+Nombre de host de FTP
+ftp://waws-prod-am2-xxx.ftp.azurewebsites.windows.net
+
+Nombre de host de FTPS
+ftps://waws-prod-am2-xxx.ftp.azurewebsites.windows.net
+```
+
+Finalmente solo tenemos que conectar al servidor FTP y copiar nuestro archivo WAR en el directorio _webapps_ y entonces será cuando _App Services_ (concretamente el contenedor Tomcat) desplegará automaticamente nuestra aplicación cada vez que subamos un archivo.
 
 ### Referencias
 
-TODO: Kit para IntelliJ IDEA y comentar que el debug remoto desde IntelliJ IDEA lo han quitado (¡¡¡¡no está disponible por ineptos!!!!)
+- [Kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/es-es/java/azure/intellij/azure-toolkit-for-intellij) 
 
-Un post con la [comparativa de precios entre AWS, Azure y Google Cloud](https://www.simform.com/compute-pricing-comparison-aws-azure-googlecloud/) muy detallado.
+Uno de los puntos más interesantes de este plugin es poder depurar remotamente nuestra aplicación; sin embargo por problemas con las últimas versiones del _plugin_ han deshabilitado [esta opción](https://docs.microsoft.com/es-es/java/azure/intellij/azure-toolkit-for-intellij-whats-new) que no sabemos cuuándo volverá.
+
+- Un post con la [comparativa de precios entre AWS, Azure y Google Cloud](https://www.simform.com/compute-pricing-comparison-aws-azure-googlecloud/) muy detallado.
