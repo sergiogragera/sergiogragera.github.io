@@ -21,13 +21,15 @@ Básico, 50 unidades de proceso, 50 GB, sin garantía de IOPS
 
 Y dependiendo del nombre seleccionado para el servidor tendremos la url de conexión siguiente:
 
-```jdbc:postgresql://gocreuniones2.postgres.database.azure.com:5432/postgres?user=\[user@server\]&password=\[password\]&ssl=true```
+```
+jdbc:postgresql://gocreuniones2.postgres.database.azure.com:5432/postgres?user=\[user@server\]&password=\[password\]&ssl=true
+```
 
 Si el servidor tiene el servicio de SSL habilitado necesitaremos descargar el certificado para usarlo en las conexiones que realicemos al servidor creado. Para esto accederemos a la página de documentación sobre la [conexión con SSL](https://docs.microsoft.com/es-es/azure/postgresql/concepts-ssl-connection-security) y descargaremos el certificado desde el [enlace proporcionado](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Tras esto, debemos decodificar el archivo descargado almacenándolo en un archivo local que utilizaremos en las conexiones (lo llamaremos root.crt):
 
 ```openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt```
 
-Además de estos aspectos de seguridad SSL es opcional pero su uso es esencial si queremos tener un cierto nivel de seguridad) es necesario configurar el **firewall** del servidor para permitir conectar desde otras máquina si es que necesitamos conectar desde de una máquina cliente para crear bases de datos como se explica en el párrafo siguiente. Para ello, desde el propio menú del servidor de BBDD accederemos a la entrada de _Seguridad de la conexión_ y aquí veremos un apartado denominado _Reglas de firewall_ donde nosotros indicaremos un rango de IPS permitidas: por ejemplo nuestra dirección IP de la máquina donde estamos trabajando (repitiendo la IP lo que definimos es el acceso para una única IP y no para un rango de IPS) o habilitamos la conexión a todas las IPS definiendo el rango _all_:
+Además de estos aspectos de seguridad SSL es opcional pero su uso es esencial si queremos tener un cierto nivel de seguridad) es necesario configurar el **firewall** del servidor para permitir conectar desde otras máquina si es que necesitamos conectar desde de una máquina cliente para crear bases de datos como se explica en el párrafo siguiente. Para ello, desde el propio menú del servidor de BBDD accederemos a la entrada de _Seguridad de la conexión_ y aquí veremos un apartado denominado _Reglas de firewall_ donde nosotros indicaremos un rango de IPS permitidas: por ejemplo nuestra dirección IP de la máquina donde estamos trabajando (repitiendo la IP lo que definimos es el acceso para una única IP y no para un rango de IPS) o habilitamos la conexión a todas las IPS definiendo el rango _all_:.
 
 ```all -- 0.0.0.0 -- 255.255.255.255```
 
@@ -80,7 +82,8 @@ Para poder conectar por FTP a nuestro servidor de aplicaciones debemos configura
 
 En la sección de menú _Introducción_ se nos muestra toda la información relativa a la conexión:
 
-```FTP/Nombre de usuario de implementación
+```
+FTP/Nombre de usuario de implementación
 test\test
 
 Nombre de host de FTP
@@ -89,6 +92,7 @@ ftp://waws-prod-am2-xxx.ftp.azurewebsites.windows.net
 Nombre de host de FTPS
 ftps://waws-prod-am2-xxx.ftp.azurewebsites.windows.net
 ```
+
 
 Finalmente solo tenemos que conectar al servidor FTP y copiar nuestro archivo WAR en el directorio _webapps_ y entonces será cuando _App Services_ (concretamente el contenedor Tomcat) desplegará automaticamente nuestra aplicación cada vez que subamos un archivo.
 
