@@ -39,7 +39,7 @@ Una vez conectados al servidor podremos crear cualquier otra base de datos (adem
 
 Seleccionamos ahora la entrada de menú _App Services_ donde agregaremos nuestro servidor o servicio de aplicaciones. Debemos definir el nombre de la aplicación, grupo de recurso al que asociaremos el servicio, plataforma, en este caso seleccionamos Windows, y lo más importante, el plan del servicio de aplicaciones o _Plan de App Service_ que indica las características del entorno donde se desplegará nuestro servicio. Aquí elegiremos el plan más barato de los estándar que son los que incluyen la posibilidad de realizar copias de seguridad:
 
-<center><img src="{{ site.baseurl }}/images/precios.png" alt="Planes de App Services" width="650"></center>
+<center><img src="{{ site.baseurl }}/images/precios.png" alt="Planes de App Services"></center>
 
 Tras la selección de un _Plan de App Services_ realizaremos la configuración de nuestro servicio. En nuestro caso seleccionaremos la versión de Java 8 y el contenedor web, que al haber seleccionado Java, nos permite elegir entre diferentes versiones de Tomcat y Jetty. En el ejemplo elegiremos Tomcat 8.0 en su versión más reciente (dejaremos que sea Azure quien se encargue de actualizar la versión de Tomcat 8 en sucesivas versiones y correcciones). También elegiremos la plataforma de 64 bits.
 
