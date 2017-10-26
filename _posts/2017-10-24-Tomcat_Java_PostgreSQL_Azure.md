@@ -82,12 +82,10 @@ En la sección de menú _Introducción_ se nos muestra toda la información rela
 FTP/Nombre de usuario de implementación
 test\test
 ```
-
 ```
 Nombre de host de FTP
 ftp://waws-prod-am2-xxx.ftp.azurewebsites.windows.net
 ```
-
 ```
 Nombre de host de FTPS
 ftps://waws-prod-am2-xxx.ftp.azurewebsites.windows.net
