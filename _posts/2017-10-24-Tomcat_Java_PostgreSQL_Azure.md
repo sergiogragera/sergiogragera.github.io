@@ -20,23 +20,21 @@ Básico, 50 unidades de proceso, 50 GB, sin garantía de IOPS
 <center><img src="{{ site.baseurl }}/images/plan_bbdd.png" alt="Planes de Base de Datos"></center>
 
 Y dependiendo del nombre seleccionado para el servidor tendremos la url de conexión siguiente:
-
 ```
 jdbc:postgresql://gocreuniones2.postgres.database.azure.com:5432/postgres?user=\[user@server\]&password=\[password\]&ssl=true
 ```
-
 Si el servidor tiene el servicio de SSL habilitado necesitaremos descargar el certificado para usarlo en las conexiones que realicemos al servidor creado. Para esto accederemos a la página de documentación sobre la [conexión con SSL](https://docs.microsoft.com/es-es/azure/postgresql/concepts-ssl-connection-security) y descargaremos el certificado desde el [enlace proporcionado](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Tras esto, debemos decodificar el archivo descargado almacenándolo en un archivo local que utilizaremos en las conexiones (lo llamaremos root.crt):
-
-```openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt```
-
+```
+openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
+```
 Además de estos aspectos de seguridad SSL es opcional pero su uso es esencial si queremos tener un cierto nivel de seguridad) es necesario configurar el **firewall** del servidor para permitir conectar desde otras máquina si es que necesitamos conectar desde de una máquina cliente para crear bases de datos como se explica en el párrafo siguiente. Para ello, desde el propio menú del servidor de BBDD accederemos a la entrada de _Seguridad de la conexión_ y aquí veremos un apartado denominado _Reglas de firewall_ donde nosotros indicaremos un rango de IPS permitidas: por ejemplo nuestra dirección IP de la máquina donde estamos trabajando (repitiendo la IP lo que definimos es el acceso para una única IP y no para un rango de IPS) o habilitamos la conexión a todas las IPS definiendo el rango _all_:
-
-```all -- 0.0.0.0 -- 255.255.255.255```
-
+```
+all -- 0.0.0.0 -- 255.255.255.255
+```
 La única base de datos existente al crear el servidor es la llamada **postgres**, pero podremos conectar al servidor de base de datos para crear otras. En este caso, podemos conectar desde nuestro sistema (necesitaremos tener instalado el cliente de PostgreSQL) o bien desde la consola bash que proporciona el propio portal de manera online:
-
-```psql "sslmode=verify-ca sslrootcert=root.crt host=[SERVER_NAME].postgres.database.azure.com dbname=postgres user=[USER_NAME]"```
-
+```
+psql "sslmode=verify-ca sslrootcert=root.crt host=[SERVER_NAME].postgres.database.azure.com dbname=postgres user=[USER_NAME]"
+```
 Una vez conectados al servidor podremos crear cualquier otra base de datos (además podremos crear las tablas y asignar los roles). En este punto tendremos ya nuestra BBDD creada. Veamos entonces como desplegar nuestra aplicación web sobre el servidor de aplicaciones _App service_.
 
 ### Creando el servidor de aplicaciones
