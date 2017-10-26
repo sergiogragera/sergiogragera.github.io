@@ -1,10 +1,10 @@
 ---
 layout: post
-title: _posts/2017-10-24-Tomcat_Java_PostgreSQL_Azure.md
+title: >-
+  Desplegando aplicaciones web con Java en Tomcat + Base de datos PostgreSQL en
+  Azure
 published: true
 ---
-## Desplegando aplicaciones web con Java en Tomcat + Base de datos PostgreSQL en Azure
-
 Azure es un conjunto integral de servicios en la nube que permite crear, implementar y administrar aplicaciones a través de la red global de centros de datos de Microsoft.
 
 [Aquí](https://azure.microsoft.com/es-es/pricing/) se puede ver el listado de precios de sus múltiples servicios y además cuenta con una [calculadora de precios](https://azure.microsoft.com/en-us/pricing/calculator/) como los otros grandes servicios de _cloud_ que existen actualmente (no da tanto miedo como la de AWS por ahora).
