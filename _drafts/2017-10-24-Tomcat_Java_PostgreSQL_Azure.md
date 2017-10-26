@@ -89,6 +89,16 @@ ftps://waws-prod-am2-xxx.ftp.azurewebsites.windows.net
 
 Finalmente solo tenemos que conectar al servidor FTP y copiar nuestro archivo WAR en el directorio _webapps_ y entonces será cuando _App Services_ (concretamente el contenedor Tomcat) desplegará automaticamente nuestra aplicación cada vez que subamos un archivo.
 
+### Calculando nuestros costes
+
+El coste que calcularemos será mensual (744 horas) aunque la tarificación que hacen por defecto es por horas. Los recursos activos (estén arrancados o parados) tendrán el coste que aquí presentamos y únicamente tenemos la opción de eliminar los recursos para que no reporten ningún coste. 
+
+Para recuperar un recurso, desde el menú de recursos y accediendo al nombre del grupo al que pertenecía tenemos una opción de menú llamado _Implementaciones_. Aquí se mostrarán las impementaciones que han existido en nuestro grupo de recursos y podemos recuperarlas facilmente seleccionando las mismas y pulsando sobre _Volver a implementar_.
+
+La transferencia de datos tiene un coste a partir de los primeros 5 GB de 0.074€ por cada _gigabyte_ en la zona 1 (que incluye a Europa y Estados Unidos entre otras).
+
+<center><img src="{{ site.baseurl }}/images/calculator.png" alt="Calculadora de precios" width="450"></center>
+
 ### Referencias
 
 1. [Kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/es-es/java/azure/intellij/azure-toolkit-for-intellij). Uno de los puntos más interesantes de este plugin es poder depurar remotamente nuestra aplicación; sin embargo por problemas con las últimas versiones del _plugin_ han deshabilitado [esta opción](https://docs.microsoft.com/es-es/java/azure/intellij/azure-toolkit-for-intellij-whats-new) en la versión del 14 de abril de 2017 sin especificar cuándo estará nuevamente disponible.
