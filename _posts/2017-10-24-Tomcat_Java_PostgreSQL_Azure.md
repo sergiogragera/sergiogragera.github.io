@@ -56,7 +56,7 @@ En el ejemplo llamamos a la variable GOC_JDBC y según la especificación para v
 - Base de datos SQL: SQLAZURECONNSTR_
 - Personalizado: CUSTOMCONNSTR_
 
-<center><img src="{{ site.baseurl }}/images/configuracion_conexion.png" alt="Configuración de la conexión de BBDD para back up" width="450"></center>
+<center><img src="{{ site.baseurl }}/images/configuracion_conexion.png" alt="Configuración de la conexión de BBDD para back up" width="550"></center>
 
 Una vez finalizada la configuración seleccionaremos la entrada de menú de _Copias de seguridad_. Aquí debemos seleccionar un _storage_ (el plan seleccionado anteriormente nos permite crear uno de 50 GB) donde ir guardando las copias y podemos programar la hora y fecha en las que se haran estas mismas. Además incluiremos la copia de la BBDD indicando la propiedad de la cadena de conexión que habíamos definido en el apartado anterior.
 
