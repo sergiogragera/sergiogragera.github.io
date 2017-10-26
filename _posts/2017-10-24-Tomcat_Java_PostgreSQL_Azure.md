@@ -92,7 +92,6 @@ ftp://waws-prod-am2-xxx.ftp.azurewebsites.windows.net
 Nombre de host de FTPS
 ftps://waws-prod-am2-xxx.ftp.azurewebsites.windows.net
 ```
-
 Finalmente solo tenemos que conectar al servidor FTP y copiar nuestro archivo WAR en el directorio _webapps_ y entonces será cuando _App Services_ (concretamente el contenedor Tomcat) desplegará automaticamente nuestra aplicación cada vez que subamos un archivo.
 
 ### Calculando nuestros costes
