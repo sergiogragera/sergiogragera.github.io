@@ -17,6 +17,8 @@ El tipo de rendimiento que hemos seleccionado en el ejemplo es el mínimo para e
 
 Básico, 50 unidades de proceso, 50 GB, sin garantía de IOPS
 
+<center><img src="{{ site.baseurl }}/images/plan_bbdd.png" alt="Planes de Base de Datos"></center>
+
 Y dependiendo del nombre seleccionado para el servidor tendremos la url de conexión siguiente:
 
 jdbc:postgresql://gocreuniones2.postgres.database.azure.com:5432/postgres?user=\[user@server\]&password=\[password\]&ssl=true
