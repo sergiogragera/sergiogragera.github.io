@@ -1,5 +1,7 @@
 ---
-published: false
+layout: post
+title: Desplegando aplicaciones web con Java en Tomcat + Base de datos PostgreSQL en Azure
+published: true
 ---
 ## Desplegando aplicaciones web con Java en Tomcat + Base de datos PostgreSQL en Azure
 
