@@ -5,7 +5,7 @@ published: false
 
 Azure es un conjunto integral de servicios en la nube que permite crear, implementar y administrar aplicaciones a través de la red global de centros de datos de Microsoft.
 
-[Aquí](https://azure.microsoft.com/es-es/pricing/) se puede ver el listado de precios de sus múltiples servicios y además cuenta con una [calculadora de precios](https://azure.microsoft.com/en-us/pricing/calculator/).
+[Aquí](https://azure.microsoft.com/es-es/pricing/) se puede ver el listado de precios de sus múltiples servicios y además cuenta con una [calculadora de precios](https://azure.microsoft.com/en-us/pricing/calculator/) como los otros grandes servicios de _cloud_ que existen actualmente.
 
 ### Creando la base de datos
 
@@ -91,8 +91,9 @@ Finalmente solo tenemos que conectar al servidor FTP y copiar nuestro archivo WA
 
 ### Referencias
 
-1. [Kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/es-es/java/azure/intellij/azure-toolkit-for-intellij) 
+1. [Kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/es-es/java/azure/intellij/azure-toolkit-for-intellij). Uno de los puntos más interesantes de este plugin es poder depurar remotamente nuestra aplicación; sin embargo por problemas con las últimas versiones del _plugin_ han deshabilitado [esta opción](https://docs.microsoft.com/es-es/java/azure/intellij/azure-toolkit-for-intellij-whats-new) que no sabemos cuuándo volverá:
 
-Uno de los puntos más interesantes de este plugin es poder depurar remotamente nuestra aplicación; sin embargo por problemas con las últimas versiones del _plugin_ han deshabilitado [esta opción](https://docs.microsoft.com/es-es/java/azure/intellij/azure-toolkit-for-intellij-whats-new) que no sabemos cuuándo volverá.
+	Eliminación de la compatibilidad con la depuración remota
 
-2. Un post con la [comparativa de precios entre AWS, Azure y Google Cloud](https://www.simform.com/compute-pricing-comparison-aws-azure-googlecloud/) muy detallado.
+1. Un post con la [comparativa de precios entre AWS, Azure y Google Cloud](https://www.simform.com/compute-pricing-comparison-aws-azure-googlecloud/) muy detallado.
+
