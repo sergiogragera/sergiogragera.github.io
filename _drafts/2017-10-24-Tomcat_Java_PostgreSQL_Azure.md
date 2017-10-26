@@ -35,19 +35,24 @@ Una vez conectados al servidor podremos crear cualquier otra base de datos (adem
 
 ### Creando el servidor de aplicaciones
 
-Seleccionamos ahora la entrada de menú _App Services_ donde agregaremos nuestro servidor o servicio de aplicaciones. Debemos definir el nombre de la aplicación, grupo de recurso al que asociaremos el servicio, plataforma (en este caso seleccionamos Windows) y lo más importante, el plan del servicio de aplicaciones _Plan de App Service_ que indica las características del entorno donde se desplegará nuestro servicio. Aquí elegiremos el plan más barato de los estándar que son los que incluyen la posibilidad de realizar copias de seguridad:
+Seleccionamos ahora la entrada de menú _App Services_ donde agregaremos nuestro servidor o servicio de aplicaciones. Debemos definir el nombre de la aplicación, grupo de recurso al que asociaremos el servicio, plataforma, en este caso seleccionamos Windows, y lo más importante, el plan del servicio de aplicaciones o _Plan de App Service_ que indica las características del entorno donde se desplegará nuestro servicio. Aquí elegiremos el plan más barato de los estándar que son los que incluyen la posibilidad de realizar copias de seguridad:
 
 <center><img src="{{ site.baseurl }}/images/precios.png" alt="Planes de App Services" width="450"></center>
 
-Tras la selección de un plan de _App Services_ realizaremos la configuración de nuestro servicio. En nuestro caso seleccionaremos la versión de Java 8 y el contenedor web, que al haber seleccionado Java nos permite elegir entre diferentes versiones de Tomcat y Jetty. En el ejemplo elegiremos Tomcat 8.0 en su versión más reciente (dejaremos que sea Azure quien se encargue de actualizar la versión de Tomcat 8 en sucesivas versiones y correcciones). También elegiremos la plataforma de 64 bits.
+Tras la selección de un _Plan de App Services_ realizaremos la configuración de nuestro servicio. En nuestro caso seleccionaremos la versión de Java 8 y el contenedor web, que al haber seleccionado Java, nos permite elegir entre diferentes versiones de Tomcat y Jetty. En el ejemplo elegiremos Tomcat 8.0 en su versión más reciente (dejaremos que sea Azure quien se encargue de actualizar la versión de Tomcat 8 en sucesivas versiones y correcciones). También elegiremos la plataforma de 64 bits.
 
 <center><img src="{{ site.baseurl }}/images/configuracion_basica.png" alt="Configuración básica" width="450"></center>
 
 Siempre podremos volver a editar esta configuración pero inicialmente podemos definir como propiedades de conexión la url de BBDD para que Azure nos permita hacer copias de seguridad del servicio de aplicaiones junto con los datos de la BBDD. Para esto es necesario definir la cadena de conexión (notése que en la imagen siguiente la url del jdbc se oculta por seguridad pero deberemos indicar la cadena de conexión con usuario y contraseña).
 
-Esta propiedad nos servirá, además de como veremos en el siguiente párrafo para realizar copias de seguridad de la aplicación junto con la BBDD, para poder llamar dentro de nuestra aplicación a la variable del sistema con este valor y así definir las propiedades de configuración.
+Esta propiedad nos servirá, además de como veremos en el siguiente párrafo para realizar copias de seguridad de la aplicación junto con la BBDD, también para tener disponibles como variables de entorno en tiempo de ejecución estos valores de conexión o credenciales que utilizará nuestra aplicación.
 
-En el ejemplo llamamos a la variable GOC_JDBC y por tanto la debemos definir como **CUSTOMCONNSTR_GOC_JDBC** (siendo CUSTOMCONNSTR_ el prefijo válido para las variables de conexión):
+En el ejemplo llamamos a la variable GOC_JDBC y según la especificación para variables de conexión PostgreSQL se definirá en el entorno como **CUSTOMCONNSTR_GOC_JDBC**, siendo CUSTOMCONNSTR_ el prefijo para la conexión de PostgreSQL. Los prefijos de variable de entorno son los siguientes:
+
+- SQL Server: SQLCONNSTR_
+- MySQL: MYSQLCONNSTR_
+- Base de datos SQL: SQLAZURECONNSTR_
+- Personalizado: CUSTOMCONNSTR_
 
 <center><img src="{{ site.baseurl }}/images/configuracion_conexion.png" alt="Configuración de la conexión de BBDD para back up" width="450"></center>
 
