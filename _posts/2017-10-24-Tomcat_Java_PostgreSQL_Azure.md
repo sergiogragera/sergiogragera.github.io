@@ -106,4 +106,4 @@ La transferencia de datos tiene un coste a partir de los primeros 5 GB de 0.074�
 
 1. [Kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/es-es/java/azure/intellij/azure-toolkit-for-intellij). Uno de los puntos más interesantes de este plugin es poder depurar remotamente nuestra aplicación; sin embargo por problemas con las últimas versiones del _plugin_ han deshabilitado [esta opción](https://docs.microsoft.com/es-es/java/azure/intellij/azure-toolkit-for-intellij-whats-new) en la versión del 14 de abril de 2017 sin especificar cuándo estará nuevamente disponible.
 
-1. Un post con la [comparativa de precios entre AWS, Azure y Google Cloud](https://www.simform.com/compute-pricing-comparison-aws-azure-googlecloud/) muy detallado.
+1. Un post con la [comparativa de precios entre AWS, Azure y Google Cloud](https://www.simform.com/compute-pricing-comparison-aws-azure-googlecloud/) muy detallada.
