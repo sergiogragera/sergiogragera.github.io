@@ -45,7 +45,7 @@ Tras la selección de un _Plan de App Services_ realizaremos la configuración d
 
 <center><img src="{{ site.baseurl }}/images/configuracion_basica.png" alt="Configuración básica"></center>
 
-Siempre podremos volver a editar esta configuración pero inicialmente podemos definir como propiedades de conexión la url de BBDD para que Azure nos permita hacer copias de seguridad del servicio de aplicaiones junto con los datos de la BBDD. Para esto es necesario definir la cadena de conexión (notése que en la imagen siguiente la url del jdbc se oculta por seguridad pero deberemos indicar la cadena de conexión con usuario y contraseña).
+Siempre podremos volver a editar esta configuración pero inicialmente podemos definir como propiedades de conexión la url de BBDD para que Azure nos permita hacer copias de seguridad del servicio de aplicaciones junto con los datos de la BBDD. Para esto es necesario definir la cadena de conexión (notése que en la imagen siguiente la url del jdbc se oculta por seguridad pero deberemos indicar la cadena de conexión con usuario y contraseña).
 
 Esta propiedad nos servirá, además de como veremos en el siguiente párrafo para realizar copias de seguridad de la aplicación junto con la BBDD, también para tener disponibles como variables de entorno en tiempo de ejecución estos valores de conexión o credenciales que utilizará nuestra aplicación.
 
@@ -58,7 +58,7 @@ En el ejemplo llamamos a la variable GOC_JDBC y según la especificación para v
 
 <center><img src="{{ site.baseurl }}/images/configuracion_conexion.png" alt="Configuración de la conexión de BBDD para back up"></center>
 
-Una vez finalizada la configuración seleccionaremos la entrada de menú de _Copias de seguridad_. Aquí debemos seleccionar un _storage_ (el plan seleccionado anteriormente nos permite crear uno de 50 GB) donde ir guardando las copias y podemos programar la hora y fecha en las que se haran estas mismas. Además incluiremos la copia de la BBDD indicando la propiedad de la cadena de conexión que habíamos definido en el apartado anterior.
+Una vez finalizada la configuración seleccionaremos la entrada de menú de _Copias de seguridad_. Aquí debemos seleccionar un _storage_ (el plan seleccionado anteriormente nos permite crear uno de 50 GB) donde ir guardando las copias y podemos programar la hora y fecha en las que se harán estas mismas. Además incluiremos la copia de la BBDD indicando la propiedad de la cadena de conexión que habíamos definido en el apartado anterior.
 
 <center><img src="{{ site.baseurl }}/images/configuracion_backup.png" alt="Configuración de back up"></center>
 
@@ -96,7 +96,7 @@ Finalmente solo tenemos que conectar al servidor FTP y copiar nuestro archivo WA
 
 El coste que calcularemos será mensual (744 horas) aunque la tarificación que hacen por defecto es por horas. Los recursos activos (estén arrancados o parados) tendrán el coste que aquí presentamos y únicamente tenemos la opción de eliminar los recursos para que no reporten ningún coste. 
 
-Para recuperar un recurso, desde el menú de recursos y accediendo al nombre del grupo al que pertenecía tenemos una opción de menú llamado _Implementaciones_. Aquí se mostrarán las impementaciones que han existido en nuestro grupo de recursos y podemos recuperarlas facilmente seleccionando las mismas y pulsando sobre _Volver a implementar_.
+Para recuperar un recurso, desde el menú de recursos y accediendo al nombre del grupo al que pertenecía tenemos una opción de menú llamado _Implementaciones_. Aquí se mostrarán las impementaciones que han existido en nuestro grupo de recursos y podemos recuperarlas fácilmente seleccionando las mismas y pulsando sobre _Volver a implementar_.
 
 La transferencia de datos tiene un coste a partir de los primeros 5 GB de 0.074€ por cada _gigabyte_ en la zona 1 (que incluye a Europa y Estados Unidos entre otras).
 
