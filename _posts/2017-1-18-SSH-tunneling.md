@@ -3,7 +3,7 @@ layout: post
 title: SSH tunneling
 published: true
 ---
-Entre las opciones a la hora de conectar mediante SSH (Secure SHell) existe la pposibilidad de crear un túnel desde la máquina local hasta una tercera máquina.
+Entre las opciones a la hora de conectar mediante SSH (Secure SHell) existe la posibilidad de crear un túnel desde la máquina local hasta una tercera máquina.
 
 Supongamos que tenemos acceso SSH a una máquina donde tenemos nuestro servidor; sin embargo, no tenemos acceso directo a la máquina donde tenemos la base de datos. Esta máquina es solo accesible desde la máquina donde está nuestro servidor, pero no desde nuestra máquina local actual en la que estamos trabajando.
 
